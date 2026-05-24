@@ -100,31 +100,31 @@ html.dark {
   color: #5F6B65;
 }
 
-/* Dark mode prose */
-.dark .prose-mavyn h2,
-.dark .prose-mavyn h3,
-.dark .prose-mavyn strong {
+/* Dark mode prose — only applies inside section-white */
+.dark .section-white .prose-mavyn h2,
+.dark .section-white .prose-mavyn h3,
+.dark .section-white .prose-mavyn strong {
   color: #F1F5F2;
 }
-.dark .prose-mavyn p,
-.dark .prose-mavyn ul li,
-.dark .prose-mavyn td {
+.dark .section-white .prose-mavyn p,
+.dark .section-white .prose-mavyn ul li,
+.dark .section-white .prose-mavyn td {
   color: #9CA3AF;
 }
-.dark .prose-mavyn th {
-  background: var(--bg-deep);
+.dark .section-white .prose-mavyn th {
+  background: var(--dark-card-bg);
   color: #34D399;
 }
-.dark .prose-mavyn td {
+.dark .section-white .prose-mavyn td {
   border-bottom-color: rgba(255,255,255,0.06);
 }
-.dark .prose-mavyn a {
+.dark .section-white .prose-mavyn a {
   color: #34D399;
 }
-.dark .prose-mavyn a:hover {
+.dark .section-white .prose-mavyn a:hover {
   color: #6EE7B7;
 }
-.dark .prose-mavyn ul li::before {
+.dark .section-white .prose-mavyn ul li::before {
   background: #34D399;
 }
 
@@ -142,16 +142,24 @@ html.dark {
 }
 
 .dark {
-  /* Dark mode palette */
-  --bg: #0F1A14;
-  --bg-deep: #0A1410;
-  --bg-card: rgba(15, 26, 20, 0.95);
-  --cyan: #34D399;
-  --blue: #34D399;
-  --ink: #F1F5F2;
-  --muted: #9CA3AF;
-  --border: rgba(52, 211, 153, 0.22);
-  --overlay: rgba(0, 0, 0, 0.75);
+  /* Dark mode — ONLY white sections change. Green sections stay green. */
+  --bg: #E0F2E0;
+  --bg-deep: #D4ECD4;
+  --bg-card: rgba(224, 242, 224, 0.95);
+  --cyan: #147B58;
+  --blue: #147B58;
+  --ink: #212427;
+  --muted: #6B7280;
+  --border: rgba(20, 123, 88, 0.22);
+  --overlay: rgba(255, 255, 255, 0.85);
+
+  /* Dark mode specific — used only by section-white / card-white */
+  --dark-section-bg: #0F1A14;
+  --dark-card-bg: #1A2B22;
+  --dark-text: #F1F5F2;
+  --dark-text-muted: #9CA3AF;
+  --dark-border: rgba(52, 211, 153, 0.18);
+  --dark-accent: #34D399;
 }
 
 html,
@@ -172,10 +180,6 @@ body {
 
 ::selection {
   background: rgba(20, 123, 88, 0.3);
-  color: var(--ink);
-}
-.dark ::selection {
-  background: rgba(52, 211, 153, 0.3);
   color: var(--ink);
 }
 
@@ -202,12 +206,6 @@ video {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(20, 123, 88, 0.55);
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(52, 211, 153, 0.3);
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(52, 211, 153, 0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -294,16 +292,42 @@ video {
   /* White section — flips to dark in dark mode */
   .section-white {
     background: #FFFFFF;
+    color: #212427;
   }
   .dark .section-white {
-    background: #0F1A14;
+    background: var(--dark-section-bg);
+    color: var(--dark-text);
+  }
+  .dark .section-white h1,
+  .dark .section-white h2,
+  .dark .section-white h3,
+  .dark .section-white h4,
+  .dark .section-white p,
+  .dark .section-white span,
+  .dark .section-white a,
+  .dark .section-white li,
+  .dark .section-white td {
+    color: var(--dark-text);
   }
   /* Card white — slightly lighter than section for depth */
   .card-white {
     background: #FFFFFF;
+    color: #212427;
   }
   .dark .card-white {
-    background: #1A2B22;
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+  }
+  .dark .card-white h1,
+  .dark .card-white h2,
+  .dark .card-white h3,
+  .dark .card-white h4,
+  .dark .card-white p,
+  .dark .card-white span,
+  .dark .card-white a,
+  .dark .card-white li {
+    color: var(--dark-text);
   }
 }
 
@@ -325,18 +349,6 @@ video {
 .premium-cta:hover .premium-cta__circle {
   background: #FFFFFF;
   color: #00A65A;
-}
-
-/* Dark mode CTA adjustments */
-.dark .premium-cta {
-  background: #147B58;
-}
-.dark .premium-cta:hover {
-  background: #34D399;
-}
-.dark .premium-cta:hover .premium-cta__circle {
-  background: #0F1A14;
-  color: #34D399;
 }
 .premium-cta__arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -404,101 +416,53 @@ video {
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   DARK MODE — Global overrides for white sections & dark text
-   These use !important to override inline style={{ background: "#FFFFFF" }}
+   DARK MODE — Only white sections flip to dark.
+   Green sections (#E0F2E0) and dark green sections (#073F36) stay unchanged.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* White section backgrounds → dark */
-.dark section[style*="background"],
-.dark footer[style*="background"] {
-  background: #0F1A14 !important;
-}
-
-/* White card/inner backgrounds → dark card */
-.dark div[style*="background: rgb(255, 255, 255)"],
-.dark div[style*='background: "#FFFFFF"'],
-.dark div[style*="background-color: rgb(255, 255, 255)"] {
-  background: #1A2B22 !important;
-}
-
-/* Navbar & footer background */
-.dark header[style*="background"],
-.dark footer[style*="background"] {
-  background: #0F1A14 !important;
-  border-color: rgba(52, 211, 153, 0.12) !important;
-}
-
-/* All dark text → light in dark mode */
-.dark [style*="color: rgb(16, 24, 32)"],
-.dark [style*="color: rgb(33, 36, 39)"],
-.dark [style*="color: rgb(12, 43, 21)"] {
+/* Text inside white sections that uses inline styles → override to light */
+.dark .section-white [style*="color: rgb(16, 24, 32)"],
+.dark .section-white [style*="color: rgb(33, 36, 39)"],
+.dark .section-white [style*="color: rgb(12, 43, 21)"],
+.dark .card-white [style*="color: rgb(16, 24, 32)"],
+.dark .card-white [style*="color: rgb(33, 36, 39)"],
+.dark .card-white [style*="color: rgb(12, 43, 21)"] {
   color: #F1F5F2 !important;
 }
 
-/* Muted text → lighter muted */
-.dark [style*="color: rgb(95, 107, 101)"],
-.dark [style*="color: rgb(107, 114, 128)"] {
+/* Muted text inside white sections */
+.dark .section-white [style*="color: rgb(95, 107, 101)"],
+.dark .section-white [style*="color: rgb(107, 114, 128)"],
+.dark .card-white [style*="color: rgb(95, 107, 101)"],
+.dark .card-white [style*="color: rgb(107, 114, 128)"] {
   color: #9CA3AF !important;
 }
 
-/* Green accent text → brighter green in dark mode */
-.dark [style*="color: rgb(20, 123, 88)"],
-.dark [style*="color: rgb(7, 63, 54)"] {
+/* Green accent text inside white sections → brighter green */
+.dark .section-white [style*="color: rgb(20, 123, 88)"],
+.dark .section-white [style*="color: rgb(7, 63, 54)"],
+.dark .card-white [style*="color: rgb(20, 123, 88)"],
+.dark .card-white [style*="color: rgb(7, 63, 54)"] {
   color: #34D399 !important;
 }
 
-/* Borders → dark mode borders */
-.dark [style*="border-color: rgba(12, 43, 21"] {
+/* Borders inside white sections */
+.dark .section-white [style*="border-color: rgba(12, 43, 21"],
+.dark .card-white [style*="border-color: rgba(12, 43, 21"] {
   border-color: rgba(52, 211, 153, 0.15) !important;
 }
 
-/* Glass card in dark mode */
-.dark .glass-card {
-  background: rgba(15, 26, 20, 0.9);
-  border-color: rgba(52, 211, 153, 0.15);
+/* Inline white backgrounds inside dark sections (dropdowns, inner cards) */
+.dark .section-white [style*="background: rgb(255, 255, 255)"],
+.dark .section-white [style*="background-color: rgb(255, 255, 255)"] {
+  background: var(--dark-card-bg) !important;
 }
 
-/* Grid background in dark mode */
-.dark .grid-bg {
-  background-image: linear-gradient(
-      to right,
-      rgba(52, 211, 153, 0.06) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(52, 211, 153, 0.06) 1px, transparent 1px);
-}
-
-/* Text gradient in dark mode */
-.dark .text-gradient-cyan {
-  background: linear-gradient(90deg, #34D399 0%, #6EE7B7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Testimonial cards, insight cards, and other white cards */
-.dark [style*="background: rgb(255, 255, 255)"] {
-  background: #1A2B22 !important;
-  border-color: rgba(52, 211, 153, 0.12) !important;
-}
-
-/* Green pill badges (e.g. step counters) */
-.dark [style*="background: rgb(144, 216, 144)"] {
+/* Green pill badges inside white sections */
+.dark .section-white [style*="background: rgb(144, 216, 144)"],
+.dark .card-white [style*="background: rgb(144, 216, 144)"] {
   background: rgba(52, 211, 153, 0.2) !important;
   color: #34D399 !important;
-}
-
-/* Back to top & nav buttons in dark mode */
-.dark .back-to-top-circle {
-  background: #147B58;
-}
-.dark .group:hover .back-to-top-circle {
-  background: #34D399;
-}
-
-/* Cookie consent & announcement bar */
-.dark [style*="background: rgb(224, 242, 224)"] {
-  background: #0F1A14 !important;
 }
 
 /* Ensure images don't get inverted */
@@ -507,17 +471,10 @@ video {
   filter: none;
 }
 
-/* Smooth transition for all background/color changes */
-.dark section,
-.dark header,
-.dark footer,
-.dark div,
-.dark p,
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark span,
-.dark a {
+/* Smooth transition for white sections only */
+.section-white,
+.card-white,
+.section-white *,
+.card-white * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

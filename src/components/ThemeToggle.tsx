@@ -23,8 +23,8 @@ export default function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="cursor-pointer relative flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-300 hover:border-cyan-brand/50"
       style={{
-        borderColor: isDark ? "rgba(255,255,255,0.18)" : "rgba(20,123,88,0.22)",
-        background: isDark ? "rgba(255,255,255,0.06)" : "rgba(20,123,88,0.06)"
+        borderColor: "rgba(20,123,88,0.22)",
+        background: isDark ? "rgba(20,123,88,0.12)" : "rgba(20,123,88,0.06)"
       }}
     >
       {/* Sun icon — shown in dark mode (click to go light) */}
@@ -40,7 +40,7 @@ export default function ThemeToggle() {
         className={`absolute transition-all duration-300 ${
           isDark ? "opacity-100 rotate-0 scale-100" : "opacity-0 rotate-90 scale-0"
         }`}
-        style={{ color: isDark ? "#F9FAFB" : "#212427" }}
+        style={{ color: "#212427" }}
       >
         <circle cx="12" cy="12" r="5" />
         <line x1="12" y1="1" x2="12" y2="3" />
@@ -66,7 +66,7 @@ export default function ThemeToggle() {
         className={`absolute transition-all duration-300 ${
           isDark ? "opacity-0 -rotate-90 scale-0" : "opacity-100 rotate-0 scale-100"
         }`}
-        style={{ color: isDark ? "#F9FAFB" : "#212427" }}
+        style={{ color: "#212427" }}
       >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
