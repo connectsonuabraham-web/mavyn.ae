@@ -1,8 +1,10 @@
-import { getTeamMemberBySlug, getTeamMembers } from "@/lib/sanity-queries";
-import { urlFor } from "@/lib/sanity";
+"use client";
+
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { getProfileBySlug, teamProfiles } from "@/lib/team-data";
+import { sanityClient, urlFor } from "@/lib/sanity";
 import ProfilePageClient from "./ProfilePageClient";
-import { notFound } from "next/navigation";
 
 type ProfileData = {
   name: string;
@@ -24,96 +26,131 @@ type ProfileData = {
   isFounder: boolean;
 };
 
-// Build a combined slug list for prev/next navigation
-async function getAllSlugs(): Promise<string[]> {
-  const hardcodedSlugs = teamProfiles.map((p) => p.slug);
+export default function ProfilePage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const [profile, setProfile] = useState<ProfileData | null>(null);
+  const [prevSlug, setPrevSlug] = useState<string | null>(null);
+  const [nextSlug, setNextSlug] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    const sanityMembers = await getTeamMembers();
-    if (sanityMembers && sanityMembers.length > 0) {
-      const hardcodedSet = new Set(hardcodedSlugs);
-      const newSlugs = sanityMembers
-        .filter((m: any) => !hardcodedSet.has(m.slug))
-        .map((m: any) => m.slug);
-      return [...hardcodedSlugs, ...newSlugs];
+  useEffect(() => {
+    async function loadProfile() {
+      // Try hardcoded first
+      const hardcoded = getProfileBySlug(slug);
+      if (hardcoded) {
+        const currentIndex = teamProfiles.findIndex((p) => p.slug === slug);
+        setPrevSlug(currentIndex > 0 ? teamProfiles[currentIndex - 1].slug : null);
+        setNextSlug(currentIndex < teamProfiles.length - 1 ? teamProfiles[currentIndex + 1].slug : null);
+
+        setProfile({
+          name: hardcoded.name,
+          slug: hardcoded.slug,
+          jobTitle: hardcoded.title,
+          practice: hardcoded.practice,
+          image: hardcoded.image,
+          profileLabel: hardcoded.profileLabel,
+          profileNumber: hardcoded.profileNumber,
+          currentRole: hardcoded.current,
+          formerRoles: hardcoded.former,
+          credentials: hardcoded.credentials,
+          experienceSummary: hardcoded.experience,
+          snapshotTagline: hardcoded.snapshotTagline,
+          bullets: hardcoded.bullets,
+          expertise: hardcoded.expertise,
+          timeline: hardcoded.timeline || [],
+          email: hardcoded.email,
+          isFounder: hardcoded.slug === "muna-salvi",
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Try Sanity
+      try {
+        const member = await sanityClient.fetch(
+          `*[_type == "teamMember" && slug.current == $slug][0] {
+            name,
+            "slug": slug.current,
+            jobTitle,
+            practice,
+            photo,
+            profileLabel,
+            profileNumber,
+            currentRole,
+            formerRoles,
+            credentials,
+            experienceSummary,
+            snapshotTagline,
+            bullets,
+            expertise,
+            timeline,
+            email,
+            isFounder
+          }`,
+          { slug }
+        );
+
+        if (member) {
+          // Get all members for prev/next navigation
+          const allMembers = await sanityClient.fetch(
+            `*[_type == "teamMember"] | order(order asc) { "slug": slug.current }`
+          );
+          const allSlugs = [...teamProfiles.map(p => p.slug), ...allMembers.filter((m: any) => !teamProfiles.find(p => p.slug === m.slug)).map((m: any) => m.slug)];
+          const currentIndex = allSlugs.indexOf(slug);
+          setPrevSlug(currentIndex > 0 ? allSlugs[currentIndex - 1] : null);
+          setNextSlug(currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null);
+
+          setProfile({
+            name: member.name,
+            slug: member.slug,
+            jobTitle: member.jobTitle || "",
+            practice: member.practice || "",
+            image: member.photo ? urlFor(member.photo).width(640).height(853).url() : "/images/placeholder.jpg",
+            profileLabel: member.profileLabel || "ADVISOR PROFILE",
+            profileNumber: member.profileNumber || "",
+            currentRole: member.currentRole,
+            formerRoles: member.formerRoles,
+            credentials: member.credentials,
+            experienceSummary: member.experienceSummary,
+            snapshotTagline: member.snapshotTagline,
+            bullets: member.bullets || [],
+            expertise: member.expertise || [],
+            timeline: member.timeline || [],
+            email: member.email,
+            isFounder: member.isFounder || false,
+          });
+          setLoading(false);
+          return;
+        }
+      } catch (err) {
+        // Sanity not available
+      }
+
+      setLoading(false);
     }
-  } catch (err) {
-    // Sanity not available
+
+    loadProfile();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+        <div className="animate-pulse text-ink/40 text-[14px]">Loading...</div>
+      </main>
+    );
   }
 
-  return hardcodedSlugs;
-}
-
-export default async function ProfilePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-
-  // Try hardcoded first
-  const hardcoded = getProfileBySlug(slug);
-
-  if (hardcoded) {
-    const allSlugs = await getAllSlugs();
-    const currentIndex = allSlugs.indexOf(slug);
-    const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
-    const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
-
-    const profile: ProfileData = {
-      name: hardcoded.name,
-      slug: hardcoded.slug,
-      jobTitle: hardcoded.title,
-      practice: hardcoded.practice,
-      image: hardcoded.image,
-      profileLabel: hardcoded.profileLabel,
-      profileNumber: hardcoded.profileNumber,
-      currentRole: hardcoded.current,
-      formerRoles: hardcoded.former,
-      credentials: hardcoded.credentials,
-      experienceSummary: hardcoded.experience,
-      snapshotTagline: hardcoded.snapshotTagline,
-      bullets: hardcoded.bullets,
-      expertise: hardcoded.expertise,
-      timeline: hardcoded.timeline || [],
-      email: hardcoded.email,
-      isFounder: hardcoded.slug === "muna-salvi",
-    };
-
-    return <ProfilePageClient profile={profile} prevSlug={prevSlug} nextSlug={nextSlug} />;
+  if (!profile) {
+    return (
+      <main className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+        <div className="text-center">
+          <h1 className="text-[24px] font-semibold text-ink">Profile not found</h1>
+          <a href="/team" className="mt-4 inline-block text-cyan-brand">Back to Team</a>
+        </div>
+      </main>
+    );
   }
 
-  // Not in hardcoded — try Sanity (new member added by client)
-  try {
-    const sanityMember = await getTeamMemberBySlug(slug);
-
-    if (sanityMember) {
-      const allSlugs = await getAllSlugs();
-      const currentIndex = allSlugs.indexOf(slug);
-      const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
-      const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
-
-      const profile: ProfileData = {
-        name: sanityMember.name,
-        slug: sanityMember.slug,
-        jobTitle: sanityMember.jobTitle || "",
-        practice: sanityMember.practice || "",
-        image: sanityMember.photo ? urlFor(sanityMember.photo).width(640).height(853).url() : "/images/placeholder.jpg",
-        profileLabel: sanityMember.profileLabel || "ADVISOR PROFILE",
-        profileNumber: sanityMember.profileNumber || "",
-        currentRole: sanityMember.currentRole,
-        formerRoles: sanityMember.formerRoles,
-        credentials: sanityMember.credentials,
-        experienceSummary: sanityMember.experienceSummary,
-        snapshotTagline: sanityMember.snapshotTagline,
-        bullets: sanityMember.bullets || [],
-        expertise: sanityMember.expertise || [],
-        timeline: sanityMember.timeline || [],
-        email: sanityMember.email,
-        isFounder: sanityMember.isFounder || false,
-      };
-
-      return <ProfilePageClient profile={profile} prevSlug={prevSlug} nextSlug={nextSlug} />;
-    }
-  } catch (err) {
-    // Sanity not available
-  }
-
-  notFound();
+  return <ProfilePageClient profile={profile} prevSlug={prevSlug} nextSlug={nextSlug} />;
 }
