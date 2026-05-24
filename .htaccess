@@ -1,21 +1,22 @@
 RewriteEngine On
 
-# If the requested file/directory doesn't exist in /out, serve fallback pages
+# If request is not already pointing to /out
 RewriteCond %{REQUEST_URI} !^/out/
-RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI} -f [OR]
-RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI} -d
+
+# If the file exists in /out, serve it
+RewriteCond %{DOCUMENT_ROOT}/out/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/out/$1 -d [OR]
+RewriteCond %{DOCUMENT_ROOT}/out/$1/index.html -f
 RewriteRule ^(.*)$ /out/$1 [L]
 
-# Team member fallback - serve muna-salvi page as shell (client-side routing handles it)
-RewriteCond %{REQUEST_URI} ^/team/[^/]+/$
-RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI}index.html !-f
+# Team member pages - fallback to muna-salvi shell (client-side renders correct content)
+RewriteCond %{REQUEST_URI} ^/team/[^/]+/?$
 RewriteRule ^(.*)$ /out/team/muna-salvi/index.html [L]
 
-# Insights fallback - serve first insight page as shell
-RewriteCond %{REQUEST_URI} ^/insights/[^/]+/$
-RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI}index.html !-f
+# Insight pages - fallback to first insight shell (client-side renders correct content)
+RewriteCond %{REQUEST_URI} ^/insights/[^/]+/?$
 RewriteRule ^(.*)$ /out/insights/four-pressures-redefining-uae-compliance-2026/index.html [L]
 
-# Default fallback to out folder
+# Everything else - try out folder
 RewriteCond %{REQUEST_URI} !^/out/
 RewriteRule ^(.*)$ /out/$1 [L]
