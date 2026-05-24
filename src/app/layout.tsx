@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 import CookieConsent from "@/components/CookieConsent";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import ThemeProvider from "@/components/ThemeProvider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -39,18 +40,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{ colorScheme: "light" }}>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="light only" />
-        <meta name="supported-color-schemes" content="light only" />
         <meta name="theme-color" content="#E0F2E0" />
       </head>
-      <body className="font-sans bg-bg text-ink antialiased">
-        <Loader />
-        <Navbar />
-        <main className="relative">{children}</main>
-        <Footer />
-        <CookieConsent />
+      <body className="font-sans bg-bg text-ink antialiased transition-colors duration-300">
+        <ThemeProvider>
+          <Loader />
+          <Navbar />
+          <main className="relative">{children}</main>
+          <Footer />
+          <CookieConsent />
+        </ThemeProvider>
       </body>
     </html>
   );

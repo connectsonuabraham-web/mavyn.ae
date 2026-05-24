@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force light mode — prevent dark mode from affecting the site */
+/* Light mode is default — dark mode only activates via user toggle */
 html {
-  color-scheme: light only;
+  color-scheme: light;
 }
-html, body {
-  background-color: #E0F2E0 !important;
-  color: #212427 !important;
+html.dark {
+  color-scheme: dark;
 }
+/* Prevent OS dark mode from affecting the site — only our .dark class matters */
 @media (prefers-color-scheme: dark) {
-  html, body {
-    background-color: #E0F2E0 !important;
-    color: #212427 !important;
+  html:not(.dark), html:not(.dark) body {
+    background-color: #E0F2E0;
+    color: #212427;
   }
   img, video {
     filter: none !important;
@@ -100,8 +100,36 @@ html, body {
   color: #5F6B65;
 }
 
+/* Dark mode prose */
+.dark .prose-mavyn h2,
+.dark .prose-mavyn h3,
+.dark .prose-mavyn strong {
+  color: #F1F5F2;
+}
+.dark .prose-mavyn p,
+.dark .prose-mavyn ul li,
+.dark .prose-mavyn td {
+  color: #9CA3AF;
+}
+.dark .prose-mavyn th {
+  background: var(--bg-deep);
+  color: #34D399;
+}
+.dark .prose-mavyn td {
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.dark .prose-mavyn a {
+  color: #34D399;
+}
+.dark .prose-mavyn a:hover {
+  color: #6EE7B7;
+}
+.dark .prose-mavyn ul li::before {
+  background: #34D399;
+}
+
 :root {
-  /* Green palette */
+  /* Green palette — Light mode */
   --bg: #E0F2E0;
   --bg-deep: #D4ECD4;
   --bg-card: rgba(224, 242, 224, 0.95);
@@ -111,6 +139,19 @@ html, body {
   --muted: #6B7280;
   --border: rgba(20, 123, 88, 0.22);
   --overlay: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  /* Dark mode palette */
+  --bg: #0F1A14;
+  --bg-deep: #0A1410;
+  --bg-card: rgba(15, 26, 20, 0.95);
+  --cyan: #34D399;
+  --blue: #34D399;
+  --ink: #F1F5F2;
+  --muted: #9CA3AF;
+  --border: rgba(52, 211, 153, 0.22);
+  --overlay: rgba(0, 0, 0, 0.75);
 }
 
 html,
@@ -131,6 +172,10 @@ body {
 
 ::selection {
   background: rgba(20, 123, 88, 0.3);
+  color: var(--ink);
+}
+.dark ::selection {
+  background: rgba(52, 211, 153, 0.3);
   color: var(--ink);
 }
 
@@ -157,6 +202,12 @@ video {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(20, 123, 88, 0.55);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(52, 211, 153, 0.3);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 211, 153, 0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -260,6 +311,18 @@ video {
 .premium-cta:hover .premium-cta__circle {
   background: #FFFFFF;
   color: #00A65A;
+}
+
+/* Dark mode CTA adjustments */
+.dark .premium-cta {
+  background: #147B58;
+}
+.dark .premium-cta:hover {
+  background: #34D399;
+}
+.dark .premium-cta:hover .premium-cta__circle {
+  background: #0F1A14;
+  color: #34D399;
 }
 .premium-cta__arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);

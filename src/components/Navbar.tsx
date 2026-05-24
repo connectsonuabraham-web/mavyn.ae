@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import AnnouncementBar from "./AnnouncementBar";
+import ThemeToggle from "./ThemeToggle";
 import { navLinks, menuLinks } from "@/lib/nav";
 import {
   LinkedInIcon,
@@ -103,7 +104,7 @@ export default function Navbar() {
           ease: [0.22, 1, 0.36, 1]
         }}
         className="fixed top-0 left-0 right-0 z-[120] border-b"
-        style={{ background: "#E0F2E0", borderColor: "rgba(12,43,21,0.08)" }}
+        style={{ background: "var(--bg)", borderColor: "rgba(12,43,21,0.08)" }}
       >
         {/* Announcement Bar */}
         <AnnouncementBar />
@@ -126,9 +127,9 @@ export default function Navbar() {
                         "group relative text-[16px] lg:text-[17px] transition-colors duration-300 cursor-pointer",
                         active ? "font-medium" : ""
                       )}
-                      style={{ color: "#101820" }}
+                      style={{ color: "var(--ink)" }}
                       onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
-                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}
+                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}
                     >
                       {l.label}
                       <span
@@ -141,7 +142,7 @@ export default function Navbar() {
               </nav>
             </div>
 
-            {/* Right: Contact Us button + Menu icon */}
+            {/* Right: Contact Us button + Theme toggle + Menu icon */}
             <div className="flex items-center gap-4">
 
               {/* Contact Us — pill button with hover animation */}
@@ -159,15 +160,18 @@ export default function Navbar() {
                 </span>
               </Link>
 
+              {/* Dark / Light mode toggle */}
+              <ThemeToggle />
+
               {/* Menu hamburger */}
               <button
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
                 className="cursor-pointer flex flex-col gap-[5px] p-2 group"
               >
-                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "#101820" }} />
-                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "#101820" }} />
-                <span className="block w-4 h-[2px] rounded-full transition-colors" style={{ background: "#101820" }} />
+                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
+                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
+                <span className="block w-4 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
               </button>
             </div>
           </div>
@@ -188,7 +192,7 @@ export default function Navbar() {
             <div
               aria-hidden
               className="absolute inset-0"
-              style={{ background: "#E0F2E0" }}
+              style={{ background: "var(--bg)" }}
             />
             {/* Hairline frame top */}
             <span
@@ -334,12 +338,12 @@ export default function Navbar() {
                 className="px-6 lg:px-14 pb-8 lg:pb-10 pt-8 lg:pt-6 mt-auto"
               >
                 {/* Contact info */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 text-[14px] mb-6" style={{ color: "#101820" }}>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 text-[14px] mb-6" style={{ color: "var(--ink)" }}>
                   <a
                     href={`mailto:${contactEmail}`}
                     className="transition-colors duration-300 cursor-pointer"
                     onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
-                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}
                   >
                     {contactEmail}
                   </a>
@@ -347,17 +351,17 @@ export default function Navbar() {
                 </div>
 
                 {/* Social media */}
-                <p className="text-[11px] tracking-[0.4em] uppercase font-medium mb-4" style={{ color: "#101820" }}>
+                <p className="text-[11px] tracking-[0.4em] uppercase font-medium mb-4" style={{ color: "var(--ink)" }}>
                   Social Media
                 </p>
                 <div className="flex items-center gap-5">
-                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
                     <LinkedInIcon className="w-6 h-6" />
                   </a>
-                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
                     <InstagramIcon className="w-6 h-6" />
                   </a>
-                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
                     <XIcon className="w-6 h-6" />
                   </a>
                 </div>
