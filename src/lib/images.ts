@@ -127,3 +127,4 @@ export const HOME_IMG = {
   burjView:
     "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1600&q=80"
 };
+

@@ -42,3 +42,4 @@ export const ArrowUpIcon = ({ className }: IconProps) => (
     <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
   </svg>
 );
+

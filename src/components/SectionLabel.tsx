@@ -26,3 +26,4 @@ export default function SectionLabel({
     </motion.div>
   );
 }
+

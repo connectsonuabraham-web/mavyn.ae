@@ -23,8 +23,8 @@ export default function RegulatoryRadarRow({
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
       className="group relative grid grid-cols-[60px_1fr] md:grid-cols-[110px_auto_1fr_360px] items-stretch min-h-[100px] md:min-h-[120px] rounded-2xl overflow-hidden cursor-pointer hover:-translate-y-0.5 transition-all duration-500"
       style={{ background: "#073F36", border: "1px solid rgba(22,214,163,0.12)" }}
     >
@@ -79,3 +79,4 @@ export default function RegulatoryRadarRow({
     </motion.div>
   );
 }
+

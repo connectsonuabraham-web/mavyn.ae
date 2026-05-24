@@ -3,3 +3,4 @@ export default function cx(
 ): string {
   return inputs.filter(Boolean).join(" ");
 }
+

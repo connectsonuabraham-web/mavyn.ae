@@ -237,3 +237,4 @@ export default function ExpertsHoverExpand({ experts, className }: ExpertsHoverE
     </section>
   );
 }
+

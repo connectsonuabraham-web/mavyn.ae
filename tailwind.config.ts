@@ -9,14 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // BCG-inspired palette: white backgrounds, forest green accent
         bg: {
           DEFAULT: "#E0F2E0",
           deep: "#D4ECD4",
           card: "rgba(224, 242, 224, 0.95)"
         },
         cyan: {
-          brand: "#147B58" // BCG forest green (Pantone 341 C)
+          brand: "#147B58"
         },
         blue: {
           brand: "#147B58"

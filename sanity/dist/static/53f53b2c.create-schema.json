@@ -1,0 +1,422 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "e.g. Amer Ibrahim",
+        "name": "name",
+        "type": "string",
+        "title": "Full Name"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Click Generate to auto-create from name",
+        "name": "slug",
+        "type": "slug",
+        "title": "URL Slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Portrait photo, 3:4 ratio recommended (e.g. 600x800px)",
+        "name": "photo",
+        "type": "image",
+        "title": "Profile Photo"
+      },
+      {
+        "initialValue": "ADVISOR PROFILE",
+        "description": "e.g. ADVISOR PROFILE or FOUNDER PROFILE",
+        "name": "profileLabel",
+        "type": "string"
+      },
+      {
+        "description": "e.g. Senior Advisor, CEO & Founder, Advisor",
+        "name": "jobTitle",
+        "type": "string"
+      },
+      {
+        "description": "e.g. Audit, Risk & Compliance",
+        "name": "practice",
+        "type": "string",
+        "title": "Practice Area"
+      },
+      {
+        "description": "e.g. CFO, Mawarid Finance PJSC",
+        "name": "currentRole",
+        "type": "string"
+      },
+      {
+        "description": "e.g. First Gulf Bank · Citibank N.A.",
+        "name": "formerRoles",
+        "type": "string"
+      },
+      {
+        "description": "e.g. Audito · AML/CTF Certified Specialist",
+        "name": "credentials",
+        "type": "string"
+      },
+      {
+        "description": "e.g. 30+ years across UAE & Sudan banking",
+        "name": "experienceSummary",
+        "type": "string"
+      },
+      {
+        "description": "Shown under 'Expertise Overview' heading, e.g. Governance · AML/CTF · Internal Audit",
+        "name": "snapshotTagline",
+        "type": "string",
+        "title": "Expertise Tagline"
+      },
+      {
+        "description": "Main bullet points in the Expertise Overview section (3-4 recommended), e.g. 30+ years of banking experience across UAE and Sudan financial institutions.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "bullets",
+        "type": "array",
+        "title": "Expertise Overview Bullets"
+      },
+      {
+        "description": "Short tags shown as chips, e.g. Governance & QC, AML/CTF, Transaction Monitoring, Internal Audit",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "expertise",
+        "type": "array",
+        "title": "Expertise Tags"
+      },
+      {
+        "description": "Career milestones shown as horizontal timeline (5 entries recommended). Add in chronological order.",
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "e.g. Sudan, UAE, 2004, 2018",
+                "name": "year",
+                "type": "string",
+                "title": "Year / Location"
+              },
+              {
+                "description": "e.g. Citibank Khartoum, First Gulf Bank, ADIB",
+                "name": "label",
+                "type": "string",
+                "title": "Description"
+              }
+            ],
+            "type": "object",
+            "name": "timelineEntry"
+          }
+        ],
+        "name": "timeline",
+        "type": "array",
+        "title": "Career Timeline"
+      },
+      {
+        "initialValue": false,
+        "description": "Check to feature this person as the founder (large card) on team page",
+        "name": "isFounder",
+        "type": "boolean",
+        "title": "Is Founder?"
+      }
+    ],
+    "name": "teamMember",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Click Generate to auto-create from title",
+        "name": "slug",
+        "type": "slug",
+        "title": "URL Slug"
+      },
+      {
+        "description": "Custom category label (e.g. Perspective · 6 min, Briefing · 4 min, White Paper, or anything you want)",
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "description": "Shown on the card in the listing page",
+        "name": "description",
+        "type": "text",
+        "title": "Short Description"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Card thumbnail image",
+        "name": "featuredImage",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/"
+                                  ],
+                                  "allowRelative": false,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "name": "href",
+                      "type": "url",
+                      "title": "URL"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Bold"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h2",
+                "title": "H2"
+              },
+              {
+                "value": "h3",
+                "title": "H3"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "type": "image"
+          }
+        ],
+        "name": "content",
+        "type": "array",
+        "title": "Full Article Content"
+      },
+      {
+        "name": "publishedAt",
+        "type": "date",
+        "title": "Published Date"
+      },
+      {
+        "initialValue": true,
+        "description": "Uncheck to hide from the website",
+        "name": "published",
+        "type": "boolean"
+      }
+    ],
+    "name": "insight",
+    "type": "document",
+    "title": "Insight / White Paper"
+  },
+  {
+    "fields": [
+      {
+        "name": "contactEmail",
+        "type": "string"
+      },
+      {
+        "name": "contactPhone",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "name": "contactAddress",
+        "type": "text",
+        "title": "Office Address"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "linkedinUrl",
+        "type": "url",
+        "title": "LinkedIn URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "instagramUrl",
+        "type": "url",
+        "title": "Instagram URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "twitterUrl",
+        "type": "url",
+        "title": "X / Twitter URL"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document"
+  }
+]

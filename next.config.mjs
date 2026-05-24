@@ -6,7 +6,8 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "plus.unsplash.com" }
+      { protocol: "https", hostname: "plus.unsplash.com" },
+      { protocol: "https", hostname: "cdn.sanity.io" }
     ]
   },
   trailingSlash: true,

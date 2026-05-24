@@ -180,3 +180,4 @@ export const TargetIcon = ({ className }: IconProps) => (
     <circle cx="12" cy="12" r="2" fill="currentColor" />
   </svg>
 );
+

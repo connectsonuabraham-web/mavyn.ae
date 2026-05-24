@@ -70,7 +70,7 @@ export default function ContactForm() {
   };
 
   const inputStyle = "w-full px-4 sm:px-5 py-3 sm:py-4 rounded-full text-[14px] sm:text-[15px] border-0 outline-none transition-all duration-300 focus:ring-2 focus:ring-[#00A65A]/30";
-  const inputBg = { background: "#F5F5F5", color: "#101820" };
+  const inputBg = { background: "#FFFFFF", color: "#101820" };
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
@@ -208,3 +208,4 @@ export default function ContactForm() {
     </form>
   );
 }
+

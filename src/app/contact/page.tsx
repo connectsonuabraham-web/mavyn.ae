@@ -1,10 +1,53 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ContactForm from "@/components/ContactForm";
 import PageHero from "@/components/PageHero";
 import { LinkedInIcon, XIcon, InstagramIcon } from "@/components/SocialIcons";
+import { sanityClient } from "@/lib/sanity";
+
+const DEFAULTS = {
+  contactEmail: "hello@mavyn.ae",
+  contactPhone: "+971 (0) 56 856 5999",
+  contactAddress: "Sharjah, United Arab Emirates",
+  linkedinUrl: "https://www.linkedin.com",
+  instagramUrl: "https://www.instagram.com",
+  twitterUrl: "https://x.com",
+};
 
 export default function ContactPage() {
+  const [settings, setSettings] = useState(DEFAULTS);
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const data = await sanityClient.fetch(
+          `*[_type == "siteSettings"][0] {
+            contactEmail,
+            contactPhone,
+            contactAddress,
+            linkedinUrl,
+            instagramUrl,
+            twitterUrl
+          }`
+        );
+        if (data) {
+          setSettings({
+            contactEmail: data.contactEmail || DEFAULTS.contactEmail,
+            contactPhone: data.contactPhone || DEFAULTS.contactPhone,
+            contactAddress: data.contactAddress || DEFAULTS.contactAddress,
+            linkedinUrl: data.linkedinUrl || DEFAULTS.linkedinUrl,
+            instagramUrl: data.instagramUrl || DEFAULTS.instagramUrl,
+            twitterUrl: data.twitterUrl || DEFAULTS.twitterUrl,
+          });
+        }
+      } catch (err) {
+        // Sanity not available — use defaults
+      }
+    }
+    fetchSettings();
+  }, []);
+
   return (
     <>
       <PageHero
@@ -54,13 +97,13 @@ export default function ContactPage() {
                     Email:
                   </p>
                   <a
-                    href="mailto:hello@mavyn.ae"
+                    href={`mailto:${settings.contactEmail}`}
                     className="text-[16px] font-semibold transition-colors duration-300 cursor-pointer"
                     style={{ color: "#101820" }}
                     onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
                     onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}
                   >
-                    hello@mavyn.ae
+                    {settings.contactEmail}
                   </a>
                 </div>
 
@@ -70,7 +113,7 @@ export default function ContactPage() {
                     Phone:
                   </p>
                   <p className="text-[16px] font-semibold" style={{ color: "#101820" }}>
-                    +971 (0) 56 856 5999
+                    {settings.contactPhone}
                   </p>
                 </div>
 
@@ -80,7 +123,7 @@ export default function ContactPage() {
                     Address:
                   </p>
                   <p className="text-[16px] font-semibold leading-relaxed" style={{ color: "#101820" }}>
-                    Sharjah, United Arab Emirates
+                    {settings.contactAddress}
                   </p>
                 </div>
 
@@ -90,13 +133,13 @@ export default function ContactPage() {
                     Follow Us:
                   </p>
                   <div className="flex items-center gap-4">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                    <a href={settings.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
                       <InstagramIcon className="w-5 h-5" />
                     </a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                    <a href={settings.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
                       <LinkedInIcon className="w-5 h-5" />
                     </a>
-                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
+                    <a href={settings.twitterUrl} target="_blank" rel="noopener noreferrer" aria-label="X" className="transition-colors duration-300 cursor-pointer" style={{ color: "#101820" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>
                       <XIcon className="w-5 h-5" />
                     </a>
                   </div>
@@ -138,7 +181,7 @@ export default function ContactPage() {
             </p>
             <div className="mt-8">
               <a
-                href="mailto:hello@mavyn.ae"
+                href={`mailto:${settings.contactEmail}`}
                 className="premium-cta-white inline-flex items-center gap-3 pl-7 pr-2 py-2 rounded-full transition-colors duration-350 cursor-pointer"
               >
                 <span className="premium-cta-white__text text-[15px] font-medium whitespace-nowrap">

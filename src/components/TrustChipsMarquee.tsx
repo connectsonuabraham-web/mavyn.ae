@@ -41,8 +41,8 @@ export default function TrustChipsMarquee() {
               style={{ background: "#147B58" }}
             />
             <span
-              className="text-[11px] tracking-[0.22em] uppercase whitespace-nowrap font-light"
-              style={{ color: "rgba(16,24,32,0.7)" }}
+              className="text-[13px] tracking-[0.22em] uppercase whitespace-nowrap font-medium"
+              style={{ color: "rgba(16,24,32,0.85)" }}
             >
               {c}
             </span>
@@ -52,3 +52,4 @@ export default function TrustChipsMarquee() {
     </section>
   );
 }
+

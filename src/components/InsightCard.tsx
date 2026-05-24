@@ -32,7 +32,7 @@ export default function InsightCard({
       className="group h-full"
     >
       <Link
-        href={"/contact"}
+        href={insight.href || `/insights/${insight.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
         className="block h-full rounded-2xl cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(7,63,54,0.2)]"
         style={{ background: "#90D890", border: "1px solid rgba(7,63,54,0.08)" }}
       >
@@ -83,3 +83,4 @@ export default function InsightCard({
     </motion.article>
   );
 }
+

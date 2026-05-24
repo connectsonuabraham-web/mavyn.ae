@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force light mode — prevent dark mode from affecting the site */
+html {
+  color-scheme: light only;
+}
+html, body {
+  background-color: #E0F2E0 !important;
+  color: #212427 !important;
+}
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #E0F2E0 !important;
+    color: #212427 !important;
+  }
+  img, video {
+    filter: none !important;
+  }
+}
+
 /* Prose styling for legal/policy pages */
 .prose-mavyn h2 {
   font-size: clamp(20px, 2.2vw, 28px);
@@ -83,14 +101,14 @@
 }
 
 :root {
-  /* BCG-inspired palette: warm light backgrounds, forest green accent, dark text */
+  /* Green palette */
   --bg: #E0F2E0;
   --bg-deep: #D4ECD4;
   --bg-card: rgba(224, 242, 224, 0.95);
-  --cyan: #147B58;          /* BCG forest green (Pantone 341 C) */
+  --cyan: #147B58;
   --blue: #147B58;
-  --ink: #212427;            /* dark text */
-  --muted: #6B7280;          /* medium gray for secondary text */
+  --ink: #212427;
+  --muted: #6B7280;
   --border: rgba(20, 123, 88, 0.22);
   --overlay: rgba(255, 255, 255, 0.85);
 }
@@ -305,3 +323,4 @@ video {
 .premium-cta-white:hover .premium-cta-white__arrow {
   animation: arrowSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+

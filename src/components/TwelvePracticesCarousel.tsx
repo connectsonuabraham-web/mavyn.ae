@@ -136,3 +136,4 @@ export default function TwelvePracticesCarousel({ practices }: { practices: Prac
     </section>
   );
 }
+

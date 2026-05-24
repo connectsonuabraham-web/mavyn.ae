@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
@@ -10,6 +11,7 @@ import {
   InstagramIcon,
   ArrowUpIcon
 } from "./SocialIcons";
+import { sanityClient } from "@/lib/sanity";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -20,13 +22,55 @@ const navLinks = [
   { label: "Team", href: "/team" }
 ];
 
-const socials: { label: string; href: string; icon: React.ReactNode }[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com", icon: <LinkedInIcon /> },
-  { label: "Instagram", href: "https://www.instagram.com", icon: <InstagramIcon /> },
-  { label: "X / Twitter", href: "https://x.com", icon: <XIcon /> }
-];
+const DEFAULTS = {
+  contactEmail: "hello@mavyn.ae",
+  contactPhone: "+971 (0) 56 856 5999",
+  contactAddress: "Sharjah, United Arab\nEmirates",
+  linkedinUrl: "https://www.linkedin.com",
+  instagramUrl: "https://www.instagram.com",
+  twitterUrl: "https://x.com",
+};
 
 export default function Footer() {
+  const [settings, setSettings] = useState(DEFAULTS);
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const data = await sanityClient.fetch(
+          `*[_type == "siteSettings"][0] {
+            contactEmail,
+            contactPhone,
+            contactAddress,
+            linkedinUrl,
+            instagramUrl,
+            twitterUrl
+          }`
+        );
+        if (data) {
+          setSettings({
+            contactEmail: data.contactEmail || DEFAULTS.contactEmail,
+            contactPhone: data.contactPhone || DEFAULTS.contactPhone,
+            contactAddress: data.contactAddress || DEFAULTS.contactAddress,
+            linkedinUrl: data.linkedinUrl || DEFAULTS.linkedinUrl,
+            instagramUrl: data.instagramUrl || DEFAULTS.instagramUrl,
+            twitterUrl: data.twitterUrl || DEFAULTS.twitterUrl,
+          });
+        }
+      } catch (err) {
+        // Sanity not available — use defaults
+        console.error("Footer: Failed to fetch site settings:", err);
+      }
+    }
+    fetchSettings();
+  }, []);
+
+  const socials: { label: string; href: string; icon: React.ReactNode }[] = [
+    { label: "LinkedIn", href: settings.linkedinUrl, icon: <LinkedInIcon /> },
+    { label: "Instagram", href: settings.instagramUrl, icon: <InstagramIcon /> },
+    { label: "X / Twitter", href: settings.twitterUrl, icon: <XIcon /> }
+  ];
+
   const scrollTop = () =>
     typeof window !== "undefined" &&
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -76,9 +120,9 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <p className="text-[11px] tracking-[0.32em] uppercase mb-5" style={{ color: "#0C2B15" }}>Contact</p>
             <ul className="space-y-4 text-[14px] leading-relaxed" style={{ color: "#101820" }}>
-              <li><a href="mailto:hello@mavyn.ae" className="cursor-pointer transition-colors duration-300" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>hello@mavyn.ae</a></li>
-              <li>+971 (0) 56 856 5999</li>
-              <li>Sharjah, United Arab<br />Emirates</li>
+              <li><a href={`mailto:${settings.contactEmail}`} className="cursor-pointer transition-colors duration-300" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}>{settings.contactEmail}</a></li>
+              <li>{settings.contactPhone}</li>
+              <li style={{ whiteSpace: "pre-line" }}>{settings.contactAddress}</li>
               <li style={{ color: "#5F6B65" }}>Mon , Fri &middot; 9am  6pm GST</li>
             </ul>
           </div>
@@ -108,16 +152,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t flex flex-col items-center gap-6 md:flex-row md:items-end md:justify-between text-[12.5px]" style={{ borderColor: "rgba(12,43,21,0.12)", color: "#5F6B65" }}>
-          <span className="flex items-center gap-2">
-            &copy; 2026 MAVYN Advisory. All Rights Reserved
-          </span>
-          <div className="flex items-center gap-5">
-            <Link href="/privacy-policy" className="cursor-pointer transition-colors" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#5F6B65"}>Privacy Policy</Link>
-            <span className="opacity-30">|</span>
-            <Link href="/terms" className="cursor-pointer transition-colors" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#5F6B65"}>Terms and conditions</Link>
-          </div>
-          <button type="button" onClick={scrollTop} aria-label="Back to top" className="group cursor-pointer flex flex-col items-center gap-3 md:self-end">
+        {/* Back to top — above the line */}
+        <div className="mt-12 flex justify-center md:justify-end">
+          <button type="button" onClick={scrollTop} aria-label="Back to top" className="group cursor-pointer flex flex-col items-center gap-3">
             <span
               className="back-to-top-circle relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden transition-all duration-350"
               style={{ background: "#073F36" }}
@@ -131,7 +168,29 @@ export default function Footer() {
             <span className="text-[11px] tracking-[0.32em] uppercase text-center transition-colors duration-300 group-hover:text-[#00A65A]" style={{ color: "#5F6B65" }}>Back to top</span>
           </button>
         </div>
+
+        {/* Bottom bar — below the line */}
+        <div className="mt-6 pt-6 border-t text-[12.5px]" style={{ borderColor: "rgba(12,43,21,0.12)", color: "#5F6B65" }}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Left — Copyright */}
+            <span>&copy; 2026 MAVYN Advisory. All Rights Reserved</span>
+
+            {/* Center — Privacy & Terms */}
+            <div className="flex items-center gap-5">
+              <Link href="/privacy-policy" className="cursor-pointer transition-colors" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#5F6B65"}>Privacy Policy</Link>
+              <span className="opacity-30">|</span>
+              <Link href="/terms" className="cursor-pointer transition-colors" onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#5F6B65"}>Terms and conditions</Link>
+            </div>
+
+            {/* Right — Crafted by */}
+            <a href="https://webkonic.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-0 cursor-pointer" style={{ lineHeight: 1 }}>
+              <span className="text-[14px] font-semibold transition-all duration-300 group-hover:underline underline-offset-4" style={{ color: "#5F6B65" }}>Crafted by</span>
+              <img src="/images/webkonic (7).png" alt="Webkonic" className="h-[64px] w-auto block relative -top-1 -ml-3" style={{ margin: 0, padding: 0 }} />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
+

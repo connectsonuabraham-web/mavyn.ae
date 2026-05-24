@@ -17,3 +17,4 @@ export const menuLinks = [
 
 // Footer links (kept for legacy imports)
 export const allLinks = menuLinks;
+

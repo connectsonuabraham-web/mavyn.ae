@@ -18,11 +18,11 @@ export default function Loader() {
           initial={{ opacity: 1 }}
           exit={{
             y: "-100%",
-            transition: { duration: 0.8, ease: [0.77, 0, 0.18, 1] }
+            transition: { duration: 0.6, ease: [0.65, 0, 0.35, 1] }
           }}
           className="fixed inset-0 z-[200] flex items-center justify-center bg-bg-deep"
         >
-          <div className="relative flex flex-col items-center gap-8">
+          <div className="relative flex flex-col items-center gap-0">
             {/* Mavyn Logo */}
             <motion.img
               initial={{ opacity: 0, scale: 0.9 }}
@@ -32,18 +32,10 @@ export default function Loader() {
               alt="MAVYN"
               className="w-[260px] sm:w-[320px] h-auto object-contain"
             />
-
-            {/* Expanding line */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, ease: [0.77, 0, 0.18, 1], delay: 0.3 }}
-              style={{ transformOrigin: "center" }}
-              className="h-[2px] w-56 sm:w-64 bg-[#147B58] rounded-full"
-            />
           </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
+

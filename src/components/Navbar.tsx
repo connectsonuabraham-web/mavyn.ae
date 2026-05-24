@@ -13,11 +13,29 @@ import {
   InstagramIcon
 } from "./SocialIcons";
 import cx from "@/lib/cx";
+import { sanityClient } from "@/lib/sanity";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [contactEmail, setContactEmail] = useState("hello@mavyn.ae");
+  const [contactPhone, setContactPhone] = useState("+971 (0) 56 856 5999");
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const data = await sanityClient.fetch(
+          `*[_type == "siteSettings"][0] { contactEmail, contactPhone }`
+        );
+        if (data) {
+          if (data.contactEmail) setContactEmail(data.contactEmail);
+          if (data.contactPhone) setContactPhone(data.contactPhone);
+        }
+      } catch (err) {}
+    }
+    fetchSettings();
+  }, []);
   const [entered, setEntered] = useState(false);
 
   // Slide in once the loader finishes
@@ -318,14 +336,14 @@ export default function Navbar() {
                 {/* Contact info */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 text-[14px] mb-6" style={{ color: "#101820" }}>
                   <a
-                    href="mailto:hello@mavyn.ae"
+                    href={`mailto:${contactEmail}`}
                     className="transition-colors duration-300 cursor-pointer"
                     onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
                     onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}
                   >
-                    hello@mavyn.ae
+                    {contactEmail}
                   </a>
-                  <span>+971 (0) 56 856 5999</span>
+                  <span>{contactPhone}</span>
                 </div>
 
                 {/* Social media */}
@@ -351,4 +369,5 @@ export default function Navbar() {
     </>
   );
 }
+
 

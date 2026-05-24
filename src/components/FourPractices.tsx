@@ -159,20 +159,22 @@ function PracticeCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 26, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="relative h-full min-h-[380px] lg:min-h-[440px] cursor-pointer"
       style={{ perspective: "1200px" }}
       onClick={() => setFlipped(!flipped)}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
+      onTouchStart={() => setFlipped(true)}
+      onTouchEnd={() => setFlipped(false)}
     >
       <motion.div
         className="relative w-full h-full"
         animate={{ rotateY: flipped ? 180 : 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* FRONT — light gray */}
@@ -238,3 +240,4 @@ function PracticeCard({
     </motion.div>
   );
 }
+

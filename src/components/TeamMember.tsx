@@ -35,7 +35,7 @@ export default function TeamMember({ member, index = 0 }: Props) {
     >
       <Link href={`/team/${slug}`} className="group flex flex-col items-center text-center cursor-pointer w-full">
         {/* Portrait image */}
-        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 group-hover:border-cyan-brand/45 group-hover:shadow-glow transition-all duration-500">
+        <div className="relative w-full aspect-[3/3.5] sm:aspect-[3/4] overflow-hidden rounded-lg sm:rounded-2xl border border-white/10 group-hover:border-cyan-brand/45 group-hover:shadow-glow transition-all duration-500">
           <Image
             src={member.image}
             alt={member.name}
@@ -54,32 +54,32 @@ export default function TeamMember({ member, index = 0 }: Props) {
         </div>
 
         {/* Role label — tight to name */}
-        <div className="mt-4 flex items-center gap-1.5">
+        <div className="mt-3 sm:mt-4 flex items-center justify-center gap-1.5">
           <span
             aria-hidden
-            className="block w-[6px] h-[6px] rotate-45 bg-cyan-brand"
+            className="block w-[5px] sm:w-[6px] h-[5px] sm:h-[6px] rotate-45 bg-cyan-brand"
           />
-          <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-cyan-brand font-semibold">
+          <span className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-cyan-brand font-semibold">
             {member.title}
           </span>
         </div>
 
         {/* Name */}
         <h3
-          className="mt-1.5 uppercase text-ink font-medium leading-tight group-hover:text-cyan-brand transition-colors text-[16px] sm:text-[18px] lg:text-[22px]"
+          className="mt-1 sm:mt-1.5 uppercase text-ink font-medium leading-tight group-hover:text-cyan-brand transition-colors text-[11px] sm:text-[14px] lg:text-[18px] text-center"
         >
           {member.name}
         </h3>
 
         {/* Practice — wraps nicely on mobile */}
-        <p className="mt-1.5 text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-ink/60 font-medium leading-relaxed px-1">
+        <p className="mt-1 sm:mt-1.5 text-[8px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.2em] uppercase text-ink/60 font-medium leading-relaxed px-1 text-center">
           {member.practice}
         </p>
 
         {/* View profile hint */}
         <span
           aria-hidden
-          className="mt-3 inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-ink/40 group-hover:text-cyan-brand transition-colors"
+          className="mt-2 sm:mt-3 inline-flex items-center gap-1.5 text-[8px] sm:text-[10px] tracking-[0.2em] uppercase text-ink/40 group-hover:text-cyan-brand transition-colors"
         >
           View profile
           <svg width="14" height="5" viewBox="0 0 22 8" fill="none">
@@ -94,3 +94,4 @@ export default function TeamMember({ member, index = 0 }: Props) {
     </motion.div>
   );
 }
+

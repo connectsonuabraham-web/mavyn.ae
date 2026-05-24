@@ -78,16 +78,16 @@ export default function ServiceCard({
           <div className="mt-auto pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-400 delay-200">
             <span
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-semibold tracking-[0.1em] uppercase"
-              style={{ background: "#90D890", color: "#073F36" }}
+              style={{ background: "#073F36", color: "#FFFFFF" }}
             >
               Learn More
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
 
-            {/* Green arrow circle — hover state */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: "#90D890" }}>
+            {/* Arrow circle — hover state */}
+            <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: "#073F36" }}>
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#073F36" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
@@ -96,3 +96,4 @@ export default function ServiceCard({
     </div>
   );
 }
+

@@ -64,3 +64,4 @@ export const COUNTRIES: Country[] = [
 ];
 
 export const DEFAULT_COUNTRY = COUNTRIES[0]; // UAE
+
