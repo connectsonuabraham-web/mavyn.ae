@@ -100,34 +100,6 @@ html.dark {
   color: #5F6B65;
 }
 
-/* Dark mode prose — only applies inside section-white */
-.dark .section-white .prose-mavyn h2,
-.dark .section-white .prose-mavyn h3,
-.dark .section-white .prose-mavyn strong {
-  color: #F1F5F2;
-}
-.dark .section-white .prose-mavyn p,
-.dark .section-white .prose-mavyn ul li,
-.dark .section-white .prose-mavyn td {
-  color: #9CA3AF;
-}
-.dark .section-white .prose-mavyn th {
-  background: var(--dark-card-bg);
-  color: #34D399;
-}
-.dark .section-white .prose-mavyn td {
-  border-bottom-color: rgba(255,255,255,0.06);
-}
-.dark .section-white .prose-mavyn a {
-  color: #34D399;
-}
-.dark .section-white .prose-mavyn a:hover {
-  color: #6EE7B7;
-}
-.dark .section-white .prose-mavyn ul li::before {
-  background: #34D399;
-}
-
 :root {
   /* Green palette — Light mode */
   --bg: #E0F2E0;
@@ -298,36 +270,36 @@ video {
     background: var(--dark-section-bg);
     color: var(--dark-text);
   }
-  .dark .section-white h1,
-  .dark .section-white h2,
-  .dark .section-white h3,
-  .dark .section-white h4,
-  .dark .section-white p,
-  .dark .section-white span,
-  .dark .section-white a,
-  .dark .section-white li,
-  .dark .section-white td {
+  /* Only direct section text flips — NOT text inside cards */
+  .dark .section-white > div > h1,
+  .dark .section-white > div > h2,
+  .dark .section-white > div > h3,
+  .dark .section-white > div > h4,
+  .dark .section-white > div > p,
+  .dark .section-white > div > span,
+  .dark .section-white > div > a,
+  .dark .section-white > div > div > h1,
+  .dark .section-white > div > div > h2,
+  .dark .section-white > div > div > h3,
+  .dark .section-white > div > div > h4,
+  .dark .section-white > div > div > p,
+  .dark .section-white > div > div > span,
+  .dark .section-white > div > div > a,
+  .dark .section-white > div > div > div > h1,
+  .dark .section-white > div > div > div > h2,
+  .dark .section-white > div > div > div > h3,
+  .dark .section-white > div > div > div > p,
+  .dark .section-white > div > div > div > span {
     color: var(--dark-text);
   }
-  /* Card white — slightly lighter than section for depth */
+  /* Card white — background flips but text stays default */
   .card-white {
     background: #FFFFFF;
     color: #212427;
   }
   .dark .card-white {
     background: var(--dark-card-bg);
-    color: var(--dark-text);
     border-color: var(--dark-border);
-  }
-  .dark .card-white h1,
-  .dark .card-white h2,
-  .dark .card-white h3,
-  .dark .card-white h4,
-  .dark .card-white p,
-  .dark .card-white span,
-  .dark .card-white a,
-  .dark .card-white li {
-    color: var(--dark-text);
   }
 }
 
@@ -420,35 +392,41 @@ video {
    Green sections (#E0F2E0) and dark green sections (#073F36) stay unchanged.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Text inside white sections that uses inline styles → override to light */
-.dark .section-white [style*="color: rgb(16, 24, 32)"],
-.dark .section-white [style*="color: rgb(33, 36, 39)"],
-.dark .section-white [style*="color: rgb(12, 43, 21)"],
-.dark .card-white [style*="color: rgb(16, 24, 32)"],
-.dark .card-white [style*="color: rgb(33, 36, 39)"],
-.dark .card-white [style*="color: rgb(12, 43, 21)"] {
+/* Text inside white sections that uses inline styles → override to light (NOT inside cards) */
+.dark .section-white > div > [style*="color: rgb(16, 24, 32)"],
+.dark .section-white > div > [style*="color: rgb(33, 36, 39)"],
+.dark .section-white > div > [style*="color: rgb(12, 43, 21)"],
+.dark .section-white > div > div > [style*="color: rgb(16, 24, 32)"],
+.dark .section-white > div > div > [style*="color: rgb(33, 36, 39)"],
+.dark .section-white > div > div > [style*="color: rgb(12, 43, 21)"],
+.dark .section-white > div > div > div > [style*="color: rgb(16, 24, 32)"],
+.dark .section-white > div > div > div > [style*="color: rgb(33, 36, 39)"],
+.dark .section-white > div > div > div > [style*="color: rgb(12, 43, 21)"] {
   color: #F1F5F2 !important;
 }
 
-/* Muted text inside white sections */
-.dark .section-white [style*="color: rgb(95, 107, 101)"],
-.dark .section-white [style*="color: rgb(107, 114, 128)"],
-.dark .card-white [style*="color: rgb(95, 107, 101)"],
-.dark .card-white [style*="color: rgb(107, 114, 128)"] {
+/* Muted text inside white sections (not in cards) */
+.dark .section-white > div > [style*="color: rgb(95, 107, 101)"],
+.dark .section-white > div > [style*="color: rgb(107, 114, 128)"],
+.dark .section-white > div > div > [style*="color: rgb(95, 107, 101)"],
+.dark .section-white > div > div > [style*="color: rgb(107, 114, 128)"],
+.dark .section-white > div > div > div > [style*="color: rgb(95, 107, 101)"],
+.dark .section-white > div > div > div > [style*="color: rgb(107, 114, 128)"] {
   color: #9CA3AF !important;
 }
 
-/* Green accent text inside white sections → brighter green */
-.dark .section-white [style*="color: rgb(20, 123, 88)"],
-.dark .section-white [style*="color: rgb(7, 63, 54)"],
-.dark .card-white [style*="color: rgb(20, 123, 88)"],
-.dark .card-white [style*="color: rgb(7, 63, 54)"] {
+/* Green accent text inside white sections → brighter green (not in cards) */
+.dark .section-white > div > [style*="color: rgb(20, 123, 88)"],
+.dark .section-white > div > [style*="color: rgb(7, 63, 54)"],
+.dark .section-white > div > div > [style*="color: rgb(20, 123, 88)"],
+.dark .section-white > div > div > [style*="color: rgb(7, 63, 54)"],
+.dark .section-white > div > div > div > [style*="color: rgb(20, 123, 88)"],
+.dark .section-white > div > div > div > [style*="color: rgb(7, 63, 54)"] {
   color: #34D399 !important;
 }
 
 /* Borders inside white sections */
-.dark .section-white [style*="border-color: rgba(12, 43, 21"],
-.dark .card-white [style*="border-color: rgba(12, 43, 21"] {
+.dark .section-white [style*="border-color: rgba(12, 43, 21"] {
   border-color: rgba(52, 211, 153, 0.15) !important;
 }
 
@@ -458,9 +436,8 @@ video {
   background: var(--dark-card-bg) !important;
 }
 
-/* Green pill badges inside white sections */
-.dark .section-white [style*="background: rgb(144, 216, 144)"],
-.dark .card-white [style*="background: rgb(144, 216, 144)"] {
+/* Green pill badges inside white sections (not cards) */
+.dark .section-white [style*="background: rgb(144, 216, 144)"] {
   background: rgba(52, 211, 153, 0.2) !important;
   color: #34D399 !important;
 }
@@ -473,8 +450,6 @@ video {
 
 /* Smooth transition for white sections only */
 .section-white,
-.card-white,
-.section-white *,
-.card-white * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+.card-white {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
