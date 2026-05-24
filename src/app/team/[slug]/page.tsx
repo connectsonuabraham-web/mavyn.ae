@@ -48,7 +48,7 @@ export default function ProfilePage() {
           slug: hardcoded.slug,
           jobTitle: hardcoded.title,
           practice: hardcoded.practice,
-          image: hardcoded.image,
+          image: hardcoded.profileImage || hardcoded.image,
           profileLabel: hardcoded.profileLabel,
           profileNumber: hardcoded.profileNumber,
           currentRole: hardcoded.current,

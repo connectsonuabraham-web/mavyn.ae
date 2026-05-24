@@ -16,6 +16,7 @@ export type TeamProfile = {
   linkedin?: string;
   timeline?: { year: string; label: string }[];
   image: string;
+  profileImage?: string;
 };
 
 export const teamProfiles: TeamProfile[] = [
@@ -45,7 +46,8 @@ export const teamProfiles: TeamProfile[] = [
       { year: "ICA", label: "Compliance" },
       { year: "Mavyn", label: "Founder · CEO" }
     ],
-    image: "/images/muna.team.png"
+    image: "/images/muna.team.png",
+    profileImage: "/images/Muna%20Salvi.png"
   },
   {
     slug: "ahmed-ismet",
