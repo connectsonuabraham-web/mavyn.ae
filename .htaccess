@@ -1,18 +1,28 @@
 RewriteEngine On
+RewriteBase /
 
-# Serve existing files/directories from /out
-RewriteCond %{DOCUMENT_ROOT}/out/$1 -f
+# Don't rewrite if already in /out
+RewriteCond %{REQUEST_URI} ^/out/ [NC]
+RewriteRule ^ - [L]
+
+# If file exists in out folder, serve it
+RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI}index.html -f
+RewriteRule ^(.*)$ /out/$1index.html [L]
+
+RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI} -f
 RewriteRule ^(.*)$ /out/$1 [L]
 
-RewriteCond %{DOCUMENT_ROOT}/out/$1/ -d
-RewriteCond %{DOCUMENT_ROOT}/out/$1/index.html -f
-RewriteRule ^(.*)$ /out/$1/index.html [L]
+RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI} -d
+RewriteCond %{DOCUMENT_ROOT}/out%{REQUEST_URI}index.html -f
+RewriteRule ^(.*)$ /out/$1index.html [L]
 
-# Team member fallback - any /team/SLUG/ that doesn't exist serves muna-salvi shell
-RewriteRule ^team/[^/]+/?$ /out/team/muna-salvi/index.html [L]
+# Team fallback for unknown slugs
+RewriteCond %{REQUEST_URI} ^/team/[^/]+/?$
+RewriteRule ^ /out/team/muna-salvi/index.html [L]
 
-# Insights fallback - any /insights/SLUG/ that doesn't exist serves first insight shell
-RewriteRule ^insights/[^/]+/?$ /out/insights/four-pressures-redefining-uae-compliance-2026/index.html [L]
+# Insights fallback for unknown slugs
+RewriteCond %{REQUEST_URI} ^/insights/[^/]+/?$
+RewriteRule ^ /out/insights/four-pressures-redefining-uae-compliance-2026/index.html [L]
 
-# Everything else fallback to out folder
-RewriteRule ^(.*)$ /out/$1 [L]
+# Default fallback to 404
+RewriteRule ^ /out/404.html [L]
