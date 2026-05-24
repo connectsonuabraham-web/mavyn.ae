@@ -45,7 +45,7 @@ export const teamProfiles: TeamProfile[] = [
       { year: "ICA", label: "Compliance" },
       { year: "Mavyn", label: "Founder · CEO" }
     ],
-    image: "/images/Muna%20Salvi.png"
+    image: "/images/muna.team.png"
   },
   {
     slug: "ahmed-ismet",
