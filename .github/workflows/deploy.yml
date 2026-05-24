@@ -1,14 +1,14 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'out/**'
   # Sanity webhook triggers this
   repository_dispatch:
     types: [sanity-content-update]
+  # Manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -34,5 +34,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add out/
-          git diff --staged --quiet || (git commit -m "Auto-build: update out folder" && git push)
+          git add out/ -f
+          git diff --staged --quiet || (git commit -m "Auto-build: update out folder [skip ci]" && git push)
