@@ -27,7 +27,7 @@ const practices = [
 
 export default function TransformationPractices() {
   return (
-    <section className="relative overflow-hidden py-12 lg:py-16" style={{ background: "#FFFFFF" }}>
+    <section className="relative overflow-hidden py-12 lg:py-16 section-white">
       <div className="absolute inset-0 grid-bg opacity-[0.06] pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">

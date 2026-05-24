@@ -143,7 +143,7 @@ export default function InsightDetailPage() {
 
   if (loading) {
     return (
-      <section className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+      <section className="min-h-screen flex items-center justify-center section-white">
         <div className="animate-pulse text-ink/40 text-[14px]">Loading...</div>
       </section>
     );
@@ -151,7 +151,7 @@ export default function InsightDetailPage() {
 
   if (!insight) {
     return (
-      <section className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+      <section className="min-h-screen flex items-center justify-center section-white">
         <div className="text-center">
           <h1 className="text-[24px] font-semibold text-ink">Insight not found</h1>
           <div className="mt-6">
@@ -199,7 +199,7 @@ export default function InsightDetailPage() {
       </section>
 
       {/* Content */}
-      <section className="relative py-16 lg:py-24" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-16 lg:py-24 section-white">
         <div className="mx-auto max-w-[860px] px-6 lg:px-12">
           <Link
             href="/insights"

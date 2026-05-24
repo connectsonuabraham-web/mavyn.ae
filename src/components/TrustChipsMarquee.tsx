@@ -18,17 +18,17 @@ export default function TrustChipsMarquee() {
   return (
     <section
       className="relative border-y overflow-hidden py-5"
-      style={{ borderColor: "rgba(0,0,0,0.06)", background: "#E0F2E0" }}
+      style={{ borderColor: "rgba(0,0,0,0.06)", background: "var(--bg)" }}
     >
       <div
         aria-hidden
         className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #E0F2E0, transparent)" }}
+        style={{ background: "linear-gradient(to right, var(--bg), transparent)" }}
       />
       <div
         aria-hidden
         className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #E0F2E0, transparent)" }}
+        style={{ background: "linear-gradient(to left, var(--bg), transparent)" }}
       />
       <div className="flex w-max animate-marquee gap-4">
         {list.map((c, i) => (

@@ -60,7 +60,7 @@ const rows = [
 
 export default function RegulatoryRadarPreview() {
   return (
-    <section className="relative py-24 lg:py-36" style={{ background: "#FFFFFF" }}>
+    <section className="relative py-24 lg:py-36 section-white">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="text-center max-w-3xl mx-auto">
           <div className="flex justify-center">

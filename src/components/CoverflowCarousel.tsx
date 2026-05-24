@@ -75,7 +75,7 @@ export default function CoverflowCarousel({
   `;
 
   return (
-    <section className={cn("relative overflow-hidden py-12 lg:py-16", className)} style={{ background: "#FFFFFF" }}>
+    <section className={cn("relative overflow-hidden py-12 lg:py-16 section-white", className)}>
 
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-10">
         {heading && <div className="mb-14 lg:mb-16">{heading}</div>}

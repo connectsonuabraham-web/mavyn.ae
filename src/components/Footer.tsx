@@ -76,7 +76,7 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative border-t overflow-hidden" style={{ background: "#E0F2E0", borderColor: "rgba(12,43,21,0.1)" }}>
+    <footer className="relative border-t overflow-hidden" style={{ background: "var(--bg)", borderColor: "rgba(12,43,21,0.1)" }}>
       {/* Subtle ambient glow at top */}
       <span
         aria-hidden
@@ -102,9 +102,9 @@ export default function Footer() {
                 key={l.href}
                 href={l.href}
                 className="group relative cursor-pointer text-[14px] tracking-[0.18em] uppercase transition-colors duration-300 w-fit"
-                style={{ color: "#101820" }}
+                style={{ color: "var(--ink)" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#101820"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}
               >
                 {l.label}
                 <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" style={{ background: "#00A65A" }} />

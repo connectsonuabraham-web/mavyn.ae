@@ -135,7 +135,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+      <main className="min-h-screen flex items-center justify-center section-white">
         <div className="animate-pulse text-ink/40 text-[14px]">Loading...</div>
       </main>
     );
@@ -143,7 +143,7 @@ export default function ProfilePage() {
 
   if (!profile) {
     return (
-      <main className="min-h-screen flex items-center justify-center" style={{ background: "#FFFFFF" }}>
+      <main className="min-h-screen flex items-center justify-center section-white">
         <div className="text-center">
           <h1 className="text-[24px] font-semibold text-ink">Profile not found</h1>
           <a href="/team" className="mt-4 inline-block text-cyan-brand">Back to Team</a>

@@ -63,15 +63,15 @@ export default function InsightCard({
           </div>
         </div>
         <div className="p-7 lg:p-8">
-          <h3 className="text-[20px] lg:text-[22px] font-light leading-snug" style={{ color: "#101820" }}>
+          <h3 className="text-[20px] lg:text-[22px] font-light leading-snug" style={{ color: "var(--ink)" }}>
             {insight.title}
           </h3>
-          <p className="mt-4 leading-relaxed text-[14.5px]" style={{ color: "#073F36" }}>
+          <p className="mt-4 leading-relaxed text-[14.5px]" style={{ color: "var(--cyan)" }}>
             {insight.description}
           </p>
           <div
             className="mt-7 flex items-center gap-3 text-[12px] tracking-[0.28em] uppercase transition-transform duration-300 group-hover:translate-x-1"
-            style={{ color: "#073F36" }}
+            style={{ color: "var(--cyan)" }}
           >
             Learn more
             <svg width="22" height="8" viewBox="0 0 22 8" fill="none">

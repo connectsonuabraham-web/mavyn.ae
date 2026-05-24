@@ -58,7 +58,7 @@ export default function ContactPage() {
       />
 
       {/* Contact Section */}
-      <section className="relative py-20 lg:py-28" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-20 lg:py-28 section-white">
         <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
           {/* Section heading */}
           <div className="text-center mb-14">
@@ -151,7 +151,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section — Book a Compliance Discussion */}
-      <section className="relative py-6 lg:py-14" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-6 lg:py-14 section-white">
         <div className="relative overflow-hidden mx-3 lg:mx-10 rounded-2xl" style={{ background: "#073F36" }}>
         <div className="relative min-h-[320px] lg:min-h-[440px] flex items-center">
           {/* Background image */}

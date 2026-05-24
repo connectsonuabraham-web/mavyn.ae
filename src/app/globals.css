@@ -291,6 +291,20 @@ video {
   .reveal-mask.is-in {
     clip-path: inset(0 0 0 0);
   }
+  /* White section — flips to dark in dark mode */
+  .section-white {
+    background: #FFFFFF;
+  }
+  .dark .section-white {
+    background: #0F1A14;
+  }
+  /* Card white — slightly lighter than section for depth */
+  .card-white {
+    background: #FFFFFF;
+  }
+  .dark .card-white {
+    background: #1A2B22;
+  }
 }
 
 
@@ -387,3 +401,123 @@ video {
   animation: arrowSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   DARK MODE — Global overrides for white sections & dark text
+   These use !important to override inline style={{ background: "#FFFFFF" }}
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* White section backgrounds → dark */
+.dark section[style*="background"],
+.dark footer[style*="background"] {
+  background: #0F1A14 !important;
+}
+
+/* White card/inner backgrounds → dark card */
+.dark div[style*="background: rgb(255, 255, 255)"],
+.dark div[style*='background: "#FFFFFF"'],
+.dark div[style*="background-color: rgb(255, 255, 255)"] {
+  background: #1A2B22 !important;
+}
+
+/* Navbar & footer background */
+.dark header[style*="background"],
+.dark footer[style*="background"] {
+  background: #0F1A14 !important;
+  border-color: rgba(52, 211, 153, 0.12) !important;
+}
+
+/* All dark text → light in dark mode */
+.dark [style*="color: rgb(16, 24, 32)"],
+.dark [style*="color: rgb(33, 36, 39)"],
+.dark [style*="color: rgb(12, 43, 21)"] {
+  color: #F1F5F2 !important;
+}
+
+/* Muted text → lighter muted */
+.dark [style*="color: rgb(95, 107, 101)"],
+.dark [style*="color: rgb(107, 114, 128)"] {
+  color: #9CA3AF !important;
+}
+
+/* Green accent text → brighter green in dark mode */
+.dark [style*="color: rgb(20, 123, 88)"],
+.dark [style*="color: rgb(7, 63, 54)"] {
+  color: #34D399 !important;
+}
+
+/* Borders → dark mode borders */
+.dark [style*="border-color: rgba(12, 43, 21"] {
+  border-color: rgba(52, 211, 153, 0.15) !important;
+}
+
+/* Glass card in dark mode */
+.dark .glass-card {
+  background: rgba(15, 26, 20, 0.9);
+  border-color: rgba(52, 211, 153, 0.15);
+}
+
+/* Grid background in dark mode */
+.dark .grid-bg {
+  background-image: linear-gradient(
+      to right,
+      rgba(52, 211, 153, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(52, 211, 153, 0.06) 1px, transparent 1px);
+}
+
+/* Text gradient in dark mode */
+.dark .text-gradient-cyan {
+  background: linear-gradient(90deg, #34D399 0%, #6EE7B7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Testimonial cards, insight cards, and other white cards */
+.dark [style*="background: rgb(255, 255, 255)"] {
+  background: #1A2B22 !important;
+  border-color: rgba(52, 211, 153, 0.12) !important;
+}
+
+/* Green pill badges (e.g. step counters) */
+.dark [style*="background: rgb(144, 216, 144)"] {
+  background: rgba(52, 211, 153, 0.2) !important;
+  color: #34D399 !important;
+}
+
+/* Back to top & nav buttons in dark mode */
+.dark .back-to-top-circle {
+  background: #147B58;
+}
+.dark .group:hover .back-to-top-circle {
+  background: #34D399;
+}
+
+/* Cookie consent & announcement bar */
+.dark [style*="background: rgb(224, 242, 224)"] {
+  background: #0F1A14 !important;
+}
+
+/* Ensure images don't get inverted */
+.dark img,
+.dark video {
+  filter: none;
+}
+
+/* Smooth transition for all background/color changes */
+.dark section,
+.dark header,
+.dark footer,
+.dark div,
+.dark p,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark span,
+.dark a {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

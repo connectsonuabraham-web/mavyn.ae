@@ -21,7 +21,7 @@ export default function ExpertsHoverExpand({ experts, className }: ExpertsHoverE
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32" style={{ background: "#FFFFFF" }}>
+    <section className="relative overflow-hidden py-24 lg:py-32 section-white">
       <div className="absolute inset-0 grid-bg opacity-[0.06] pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">

@@ -85,7 +85,7 @@ export default function Testimonials() {
   const x = -active * (cardWidth + GAP);
 
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28" style={{ background: "#E0F2E0" }}>
+    <section className="relative overflow-hidden py-20 lg:py-28" style={{ background: "var(--bg)" }}>
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">
         <div className="flex items-end justify-between mb-14">
           <motion.div
@@ -181,8 +181,8 @@ export default function Testimonials() {
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div
-      className="h-full flex flex-col p-8 border rounded-2xl transition-all duration-300 hover:-translate-y-1"
-      style={{ background: "#FFFFFF", borderColor: "rgba(12,43,21,0.1)" }}
+      className="h-full flex flex-col p-8 border rounded-2xl transition-all duration-300 hover:-translate-y-1 card-white"
+      style={{ borderColor: "rgba(12,43,21,0.1)" }}
     >
       {/* Quote mark */}
       <span

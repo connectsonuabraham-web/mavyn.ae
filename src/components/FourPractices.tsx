@@ -52,7 +52,7 @@ const practices: Practice[] = [
 
 export default function FourPractices() {
   return (
-    <section className="relative overflow-hidden" style={{ background: "#FFFFFF" }}>
+    <section className="relative overflow-hidden section-white">
       <div className="absolute inset-0 pointer-events-none" />
       <div
         aria-hidden
@@ -180,7 +180,7 @@ function PracticeCard({
         {/* FRONT — light gray */}
         <div
           className="absolute inset-0 flex flex-col items-center justify-center p-8 rounded-2xl"
-          style={{ background: "#E0F2E0", backfaceVisibility: "hidden" }}
+          style={{ background: "var(--bg)", backfaceVisibility: "hidden" }}
         >
           <div
             className="flex items-center justify-center w-14 h-14 rounded-xl mb-6"

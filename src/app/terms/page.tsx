@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
@@ -13,7 +13,7 @@ export default function TermsPage() {
         image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=80"
       />
 
-      <section className="relative py-20 lg:py-28" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-20 lg:py-28 section-white">
         <div className="relative mx-auto max-w-[860px] px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

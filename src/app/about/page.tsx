@@ -67,7 +67,7 @@ export default function AboutPage() {
       {/* ==========================================================
           CTA before footer — Quote style
           ========================================================== */}
-      <section className="relative px-3 sm:px-4 lg:px-10 py-6 lg:py-14" style={{ background: "#FFFFFF" }}>
+      <section className="relative px-3 sm:px-4 lg:px-10 py-6 lg:py-14 section-white">
         <div className="relative overflow-hidden rounded-2xl" style={{ background: "#073F36" }}>
           {/* Background image */}
           <img
@@ -296,7 +296,7 @@ function ManifestoSection() {
 
 function PurposeSection() {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28" style={{ background: "#FFFFFF" }}>
+    <section className="relative overflow-hidden py-20 lg:py-28 section-white">
       <div className="absolute inset-0 grid-bg opacity-[0.06] pointer-events-none" />
       <div
         aria-hidden

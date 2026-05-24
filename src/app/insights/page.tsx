@@ -121,7 +121,7 @@ export default function InsightsPage() {
         verticalAlign="center"
       />
 
-      <section className="relative py-24 lg:py-32" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-24 lg:py-32 section-white">
         <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10">
           <div className="max-w-3xl">
             <SectionLabel>Insights</SectionLabel>

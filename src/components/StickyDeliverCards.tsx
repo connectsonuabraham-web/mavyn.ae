@@ -118,7 +118,7 @@ export default function StickyDeliverCards() {
     <section
       ref={container}
       className="relative"
-      style={{ background: "#E0F2E0" }}
+      style={{ background: "var(--bg)" }}
     >
       <div className="mx-auto max-w-[1320px] px-6 lg:px-12 pb-[50vh] pt-[10vh]">
         {steps.map((step, i) => {

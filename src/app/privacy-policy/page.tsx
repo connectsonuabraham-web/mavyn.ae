@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
         image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2400&q=80"
       />
 
-      <section className="relative py-20 lg:py-28" style={{ background: "#FFFFFF" }}>
+      <section className="relative py-20 lg:py-28 section-white">
         <div className="relative mx-auto max-w-[860px] px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

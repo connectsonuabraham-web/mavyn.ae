@@ -135,7 +135,7 @@ export default function MissionVisionValues() {
       </section>
 
       {/* Our Values — Timeline Layout */}
-      <section className="relative overflow-hidden py-20 lg:py-28 font-sans" style={{ background: "#FFFFFF" }}>
+      <section className="relative overflow-hidden py-20 lg:py-28 font-sans section-white">
         <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">
           {/* Heading */}
           <motion.div

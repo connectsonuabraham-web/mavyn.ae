@@ -25,7 +25,7 @@ const principles = [
 
 export default function AboutPreview() {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32" style={{ background: "#FFFFFF" }}>
+    <section className="relative overflow-hidden py-24 lg:py-32 section-white">
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 

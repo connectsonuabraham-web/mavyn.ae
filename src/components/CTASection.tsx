@@ -22,7 +22,7 @@ export default function CTASection({
   image
 }: Props) {
   return (
-    <section className="relative px-4 lg:px-10 py-10 lg:py-14" style={{ background: "#FFFFFF" }}>
+    <section className="relative px-4 lg:px-10 py-10 lg:py-14 section-white">
       <div className="relative overflow-hidden rounded-2xl" style={{ background: "#073F36" }}>
         <div className="relative min-h-[400px] lg:min-h-[440px] flex items-center">
           {/* Background image */}

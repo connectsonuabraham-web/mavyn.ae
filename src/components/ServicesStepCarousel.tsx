@@ -16,7 +16,7 @@ export default function ServicesStepCarousel({ services }: { services: ServiceIt
   }));
 
   return (
-    <section className="relative py-12 lg:py-16" style={{ background: "#FFFFFF" }}>
+    <section className="relative py-12 lg:py-16 section-white">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
         {/* Heading */}
         <div className="text-center mb-10">
