@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^$ out/ [L]
+RewriteRule ^(.*)$ out/$1 [L]
