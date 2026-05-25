@@ -31,7 +31,22 @@ export const metadata: Metadata = {
     title: "MAVYN — UAE Compliance & Regulatory Advisory",
     description:
       "Regulatory clarity, compliance capability and evidence-led advisory for UAE businesses.",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MAVYN — UAE Compliance & Regulatory Advisory"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MAVYN — UAE Compliance & Regulatory Advisory",
+    description:
+      "Regulatory clarity, compliance capability and evidence-led advisory for UAE businesses.",
+    images: ["/images/og-image.png"]
   }
 };
 
