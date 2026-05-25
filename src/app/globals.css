@@ -268,42 +268,30 @@ video {
   }
   .dark .section-white {
     background: var(--dark-section-bg);
+  }
+  /* Section-level text turns white in dark mode */
+  .dark .section-white > div,
+  .dark .section-white > div > div,
+  .dark .section-white > div > div > div,
+  .dark .section-white > div > div > div > div {
     color: var(--dark-text);
   }
-  /* ALL text inside white sections turns white — except text inside cards */
-  .dark .section-white h1,
-  .dark .section-white h2,
-  .dark .section-white h3,
-  .dark .section-white h4,
-  .dark .section-white h5,
-  .dark .section-white p,
-  .dark .section-white span,
-  .dark .section-white a,
-  .dark .section-white li,
-  .dark .section-white td,
-  .dark .section-white th,
-  .dark .section-white label,
-  .dark .section-white div {
+  .dark .section-white > div h1,
+  .dark .section-white > div h2,
+  .dark .section-white > div h3,
+  .dark .section-white > div h4,
+  .dark .section-white > div p,
+  .dark .section-white > div span,
+  .dark .section-white > div a,
+  .dark .section-white > div li {
     color: var(--dark-text);
   }
-  /* Cards inside sections — reset text back to original dark colors */
+  /* STOP — do not change anything inside .card-white */
   .dark .section-white .card-white,
-  .dark .section-white .card-white h1,
-  .dark .section-white .card-white h2,
-  .dark .section-white .card-white h3,
-  .dark .section-white .card-white h4,
-  .dark .section-white .card-white p,
-  .dark .section-white .card-white span,
-  .dark .section-white .card-white a,
-  .dark .section-white .card-white li,
-  .dark .section-white .card-white div {
-    color: #212427;
+  .dark .section-white .card-white *  {
+    color: unset;
   }
-  /* Card white — background does NOT change, text does NOT change */
-  .card-white {
-    background: #FFFFFF;
-    color: #212427;
-  }
+  /* card-white — just a marker, no visual styles */
 }
 
 
@@ -401,27 +389,11 @@ video {
 .dark .section-white [style*="color: rgb(12, 43, 21)"] {
   color: #F1F5F2 !important;
 }
-/* But NOT inside cards — keep original colors */
-.dark .section-white .card-white [style*="color: rgb(16, 24, 32)"] {
-  color: rgb(16, 24, 32) !important;
-}
-.dark .section-white .card-white [style*="color: rgb(33, 36, 39)"] {
-  color: rgb(33, 36, 39) !important;
-}
-.dark .section-white .card-white [style*="color: rgb(12, 43, 21)"] {
-  color: rgb(12, 43, 21) !important;
-}
 
 /* Muted text inside white sections → lighter */
 .dark .section-white [style*="color: rgb(95, 107, 101)"],
 .dark .section-white [style*="color: rgb(107, 114, 128)"] {
   color: #9CA3AF !important;
-}
-.dark .section-white .card-white [style*="color: rgb(95, 107, 101)"] {
-  color: rgb(95, 107, 101) !important;
-}
-.dark .section-white .card-white [style*="color: rgb(107, 114, 128)"] {
-  color: rgb(107, 114, 128) !important;
 }
 
 /* Green accent text inside white sections → brighter green */
@@ -429,19 +401,10 @@ video {
 .dark .section-white [style*="color: rgb(7, 63, 54)"] {
   color: #34D399 !important;
 }
-.dark .section-white .card-white [style*="color: rgb(20, 123, 88)"] {
-  color: rgb(20, 123, 88) !important;
-}
-.dark .section-white .card-white [style*="color: rgb(7, 63, 54)"] {
-  color: rgb(7, 63, 54) !important;
-}
 
-/* Borders inside white sections */
-.dark .section-white [style*="border-color: rgba(12, 43, 21"] {
-  border-color: rgba(52, 211, 153, 0.15) !important;
-}
-.dark .section-white .card-white [style*="border-color: rgba(12, 43, 21"] {
-  border-color: rgba(12, 43, 21, 0.1) !important;
+/* CARDS — undo ALL color overrides, let inline styles win */
+.dark .section-white .card-white [style*="color"] {
+  color: unset !important;
 }
 
 /* Inline white backgrounds inside sections (dropdowns etc) — but NOT cards */
@@ -456,7 +419,6 @@ video {
 }
 
 /* Smooth transition for white sections only */
-.section-white,
-.card-white {
+.section-white {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }

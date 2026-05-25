@@ -62,7 +62,7 @@ export default function TransformationPractices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="group relative flex items-stretch rounded-2xl border border-white/10 bg-bg/60 backdrop-blur-md overflow-hidden cursor-pointer hover:border-cyan-brand/40 hover:shadow-[0_8px_30px_-8px_rgba(20, 123, 88,0.12)] hover:translate-x-1 transition-all duration-400"
+              className="group relative flex items-stretch rounded-2xl border border-white/10 bg-bg/60 backdrop-blur-md overflow-hidden cursor-pointer hover:border-cyan-brand/40 hover:shadow-[0_8px_30px_-8px_rgba(20, 123, 88,0.12)] hover:translate-x-1 transition-all duration-400 card-white"
             >
               {/* Left color bar */}
               <span
