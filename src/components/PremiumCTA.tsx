@@ -24,7 +24,7 @@ export default function PremiumCTA({
   const ctaClass = isWhite ? "premium-cta-white" : "premium-cta";
 
   const inner = (
-    <span className={`${ctaClass} card-white group relative inline-flex items-center gap-2 sm:gap-4 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full transition-colors duration-350 cursor-pointer ${className}`}>
+    <span className={`${ctaClass} group relative inline-flex items-center gap-2 sm:gap-4 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full transition-colors duration-350 cursor-pointer ${className}`}>
       {/* Text */}
       <span className={`${ctaClass}__text text-[13px] sm:text-[15px] lg:text-[16px] font-medium whitespace-nowrap`}>
         {children}

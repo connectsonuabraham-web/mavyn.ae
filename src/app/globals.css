@@ -314,15 +314,15 @@ video {
   background: #00A65A;
 }
 .premium-cta__text {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 .premium-cta__circle {
   background: rgba(255, 255, 255, 0.15);
-  color: white;
+  color: white !important;
 }
 .premium-cta:hover .premium-cta__circle {
   background: #FFFFFF;
-  color: #00A65A;
+  color: #00A65A !important;
 }
 .premium-cta__arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
