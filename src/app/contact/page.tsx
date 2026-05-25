@@ -77,7 +77,7 @@ export default function ContactPage() {
           {/* Two columns: Form first on mobile, Info left on desktop */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16">
             {/* Form — shows first on mobile */}
-            <div className="order-1 lg:order-1 -mx-6 sm:mx-0 p-5 sm:p-6 lg:p-10 sm:rounded-2xl" style={{ background: "#E0F2E0" }}>
+            <div className="order-1 lg:order-1 -mx-6 sm:mx-0 p-5 sm:p-6 lg:p-10 sm:rounded-2xl card-white" style={{ background: "#E0F2E0" }}>
               <ContactForm />
             </div>
 
