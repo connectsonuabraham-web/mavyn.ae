@@ -186,7 +186,7 @@ export default function Footer() {
             {/* Right — Crafted by */}
             <a href="https://webkonic.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-0 cursor-pointer" style={{ lineHeight: 1 }}>
               <span className="text-[14px] font-semibold transition-all duration-300 group-hover:underline underline-offset-4" style={{ color: "#5F6B65" }}>Crafted by</span>
-              <img src="/images/webkonic (12).png" alt="Webkonic" className="h-[90px] w-auto block relative -top-1 ml-2" style={{ margin: 0, padding: 0 }} />
+              <img src="/images/webkonic (13).png" alt="Webkonic" className="h-[90px] w-auto block relative -top-1 ml-2" style={{ margin: 0, padding: 0 }} />
             </a>
           </div>
         </div>
