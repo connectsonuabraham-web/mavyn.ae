@@ -101,6 +101,7 @@ export default function Footer() {
               <Link
                 key={l.href}
                 href={l.href}
+                onClick={() => window.scrollTo(0, 0)}
                 className="group relative cursor-pointer text-[14px] tracking-[0.18em] uppercase transition-colors duration-300 w-fit"
                 style={{ color: "var(--ink)" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}

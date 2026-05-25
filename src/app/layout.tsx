@@ -6,6 +6,7 @@ import Loader from "@/components/Loader";
 import CookieConsent from "@/components/CookieConsent";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import ThemeProvider from "@/components/ThemeProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -46,6 +47,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-bg text-ink antialiased transition-colors duration-300">
         <ThemeProvider>
+          <ScrollToTop />
           <Loader />
           <Navbar />
           <main className="relative">{children}</main>
