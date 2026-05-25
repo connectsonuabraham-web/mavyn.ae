@@ -182,7 +182,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div
       className="h-full flex flex-col p-8 border rounded-2xl transition-all duration-300 hover:-translate-y-1 card-white"
-      style={{ borderColor: "rgba(12,43,21,0.1)" }}
+      style={{ background: "#FFFFFF", borderColor: "rgba(12,43,21,0.1)" }}
     >
       {/* Quote mark */}
       <span

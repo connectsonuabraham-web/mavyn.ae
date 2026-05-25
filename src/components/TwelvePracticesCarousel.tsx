@@ -39,7 +39,7 @@ export default function TwelvePracticesCarousel({ practices }: { practices: Prac
           </div>
 
           {/* Inner white box */}
-          <div className="rounded-2xl overflow-hidden relative card-white">
+          <div className="rounded-2xl overflow-hidden relative section-white">
             {practices.map((practice, i) => (
               <div
                 key={i}

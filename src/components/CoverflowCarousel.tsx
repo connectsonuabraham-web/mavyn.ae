@@ -51,9 +51,6 @@ export default function CoverflowCarousel({
       background-position: center;
       background-size: cover;
       width: 340px;
-      border-radius: 16px;
-      overflow: hidden;
-      background-color: #073F36;
     }
     @media (min-width: 768px) {
       .Mavyn_Coverflow {
@@ -95,7 +92,7 @@ export default function CoverflowCarousel({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="w-full card-white"
+            className="w-full"
           >
             <Swiper
               spaceBetween={30}

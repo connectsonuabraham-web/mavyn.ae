@@ -163,7 +163,7 @@ function PracticeCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="relative h-full min-h-[380px] lg:min-h-[440px] cursor-pointer card-white"
+      className="relative h-full min-h-[380px] lg:min-h-[440px] cursor-pointer"
       style={{ perspective: "1200px" }}
       onClick={() => setFlipped(!flipped)}
       onMouseEnter={() => setFlipped(true)}

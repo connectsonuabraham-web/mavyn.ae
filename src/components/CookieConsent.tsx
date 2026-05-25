@@ -34,7 +34,7 @@ export default function CookieConsent() {
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-5 left-5 right-5 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-[420px] z-[200] rounded-2xl p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border card-white"
-          style={{ borderColor: "rgba(0,0,0,0.08)" }}
+          style={{ background: "#FFFFFF", borderColor: "rgba(0,0,0,0.08)" }}
         >
           {/* Cookie icon */}
           <div className="flex items-center gap-3 mb-4">

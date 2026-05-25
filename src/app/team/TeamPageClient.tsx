@@ -35,7 +35,7 @@ export default function TeamPageClient({ members }: { members: TeamMemberData[] 
     <>
       <TeamHero />
 
-      <section className="relative bg-bg-deep text-ink pb-24 lg:pb-32">
+      <section className="relative section-white text-ink pb-24 lg:pb-32">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10 pt-10 lg:pt-14">
           {/* Heading */}
           <div className="text-center mb-16 lg:mb-20">
@@ -103,7 +103,7 @@ export default function TeamPageClient({ members }: { members: TeamMemberData[] 
       </section>
 
       {/* CTA Section */}
-      <section className="relative px-4 lg:px-10 py-10 lg:py-14" style={{ background: "#FFFFFF" }}>
+      <section className="relative px-4 lg:px-10 py-10 lg:py-14 section-white">
         <div className="relative overflow-hidden rounded-2xl" style={{ background: "#073F36" }}>
           <div className="relative min-h-[300px] lg:min-h-[360px] flex items-center">
             <img

@@ -34,7 +34,7 @@ export default function ThreeRoutesCarousel() {
     <section className="relative py-12 lg:py-16 section-white">
       <div className="lg:mx-10">
         {/* Outer light green box — full width on mobile */}
-        <div className="sm:rounded-2xl p-4 sm:p-8 lg:p-10 card-white" style={{ background: "var(--bg)" }}>
+        <div className="sm:rounded-2xl p-4 sm:p-8 lg:p-10" style={{ background: "var(--bg)" }}>
           {/* Heading inside green box */}
           <div className="text-center mb-8 lg:mb-10">
             <h2
@@ -49,7 +49,7 @@ export default function ThreeRoutesCarousel() {
           </div>
 
           {/* Inner white box */}
-          <div className="rounded-2xl overflow-hidden relative card-white" style={{ background: "#FFFFFF" }}>
+          <div className="rounded-2xl overflow-hidden relative section-white">
             {/* All steps rendered, only active one visible */}
             {steps.map((step, i) => (
               <div

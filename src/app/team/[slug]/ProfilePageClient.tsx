@@ -34,10 +34,10 @@ export default function ProfilePageClient({
   nextSlug: string | null;
 }) {
   return (
-    <main className="min-h-screen" style={{ background: "#FFFFFF" }}>
+    <main className="min-h-screen section-white">
       <section className="relative lg:min-h-screen grid grid-cols-1 lg:grid-cols-[420px_1fr] xl:grid-cols-[480px_1fr]">
         {/* LEFT PANEL */}
-        <div className="relative border-r px-8 lg:px-12 pt-44 lg:pt-52 pb-6 lg:pb-16 flex flex-col" style={{ background: "#FFFFFF", borderColor: "rgba(0,0,0,0.06)", minHeight: "auto" }}>
+        <div className="relative border-r px-8 lg:px-12 pt-44 lg:pt-52 pb-6 lg:pb-16 flex flex-col" style={{ borderColor: "rgba(0,0,0,0.06)", minHeight: "auto" }}>
           {/* Back link */}
           <div className="mb-8">
             <Link
