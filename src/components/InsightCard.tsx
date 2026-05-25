@@ -29,7 +29,7 @@ export default function InsightCard({
         delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="group h-full"
+      className="group h-full card-white"
     >
       <Link
         href={insight.href || `/insights/${insight.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}

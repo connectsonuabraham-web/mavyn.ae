@@ -73,7 +73,7 @@ export default function ContactForm() {
   const inputBg = { background: "#FFFFFF", color: "#101820" };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
+    <form onSubmit={onSubmit} className="space-y-6 card-white">
       {/* First name + Last name */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>

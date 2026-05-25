@@ -18,7 +18,7 @@ export default function ServiceCard({
   label = "Service",
 }: ServiceCardProps) {
   return (
-    <div className="w-full group cursor-pointer">
+    <div className="w-full group cursor-pointer card-white">
       <Link href={href} className="relative block overflow-hidden rounded-2xl h-[380px] lg:h-[420px] border" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
         {/* Background image — top portion */}
         <div className="absolute inset-0">

@@ -57,7 +57,7 @@ export default function ExpertsHoverExpand({ experts, className }: ExpertsHoverE
             {experts.map((expert, index) => (
               <motion.div
                 key={index}
-                className="relative cursor-pointer overflow-hidden rounded-xl"
+                className="relative cursor-pointer overflow-hidden rounded-xl card-white"
                 animate={{
                   width: activeIndex === index ? "70%" : "10%",
                   height: "18rem",
@@ -139,7 +139,7 @@ export default function ExpertsHoverExpand({ experts, className }: ExpertsHoverE
             {experts.map((expert, index) => (
               <motion.div
                 key={index}
-                className="relative cursor-pointer overflow-hidden rounded-2xl"
+                className="relative cursor-pointer overflow-hidden rounded-2xl card-white"
                 animate={{
                   width: activeIndex === index ? "28rem" : "5rem",
                   height: "34rem",

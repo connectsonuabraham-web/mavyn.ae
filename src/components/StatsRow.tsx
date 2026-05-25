@@ -80,7 +80,7 @@ export default function StatsRow() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="group p-8 lg:p-10 rounded-2xl cursor-pointer transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(7,63,54,0.15)]"
+              className="group p-8 lg:p-10 rounded-2xl cursor-pointer transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(7,63,54,0.15)] card-white"
               style={{ background: "var(--bg)", border: "1px solid rgba(7,63,54,0.08)" }}
             >
               <AnimatedNumber value={s.value} suffix={s.suffix} isText={s.isText} text={s.text} />
