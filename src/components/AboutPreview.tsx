@@ -68,12 +68,12 @@ export default function AboutPreview() {
             </p>
 
             <h2
-              className="mt-6 font-light leading-[1.06] tracking-[-0.01em]"
+              className="mt-6 font-light leading-[1.06] tracking-[-0.01em] dark-text-white"
               style={{ fontSize: "clamp(30px, 3.4vw, 52px)", color: "#101820" }}
             >
               A UAE Firm That Knows The File
               <br />
-              <span style={{ color: "#0C2B15", fontStyle: "normal" }}>
+              <span className="dark-text-white" style={{ color: "#0C2B15", fontStyle: "normal" }}>
                 Before It Lands On Your Desk.
               </span>
             </h2>

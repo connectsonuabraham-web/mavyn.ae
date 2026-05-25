@@ -474,3 +474,8 @@ video {
 .card-white {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
+/* Force white text in dark mode — use on elements that must always be white */
+.dark .section-white .dark-text-white {
+  color: #F1F5F2 !important;
+}
