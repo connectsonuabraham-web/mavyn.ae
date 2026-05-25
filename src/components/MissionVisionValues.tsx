@@ -166,11 +166,15 @@ export default function MissionVisionValues() {
           {/* Timeline */}
           <div className="relative max-w-[900px] mx-auto">
             {/* Background line (static, faint) */}
-            <span className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-ink/10" />
+            <span
+              className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px]"
+              style={{ background: "rgba(20, 123, 88, 0.15)" }}
+            />
 
             {/* Animated growing line */}
             <motion.span
-              className="absolute left-1/2 -translate-x-1/2 top-0 w-[2px] bg-ink/30 origin-top"
+              className="absolute left-1/2 -translate-x-1/2 top-0 w-[2px] origin-top"
+              style={{ background: "rgba(20, 123, 88, 0.35)" }}
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true, margin: "-100px" }}
@@ -201,7 +205,8 @@ export default function MissionVisionValues() {
                 {/* Center — Dot */}
                 <div className="relative flex flex-col items-center">
                   <motion.span
-                    className="relative z-10 block w-[10px] h-[10px] rounded-full bg-cyan-brand/60 border-[1.5px] border-cyan-brand/40 transition-all duration-300 group-hover:scale-150 group-hover:bg-cyan-brand group-hover:border-cyan-brand"
+                    className="relative z-10 block w-[10px] h-[10px] rounded-full transition-all duration-300 group-hover:scale-150"
+                    style={{ background: "rgba(20, 123, 88, 0.6)", border: "1.5px solid rgba(20, 123, 88, 0.4)", marginTop: "0.5rem" }}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -210,7 +215,6 @@ export default function MissionVisionValues() {
                       delay: i * 0.15 + 0.2,
                       ease: [0.22, 1, 0.36, 1]
                     }}
-                    style={{ marginTop: "0.5rem" }}
                   />
                 </div>
 
