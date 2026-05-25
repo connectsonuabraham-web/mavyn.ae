@@ -437,10 +437,12 @@ video {
 .dark .section-white [style*="color: rgb(7, 63, 54)"] {
   color: #34D399 !important;
 }
-.dark .section-white .card-white [style*="color: rgb(20, 123, 88)"] {
+.dark .section-white .card-white [style*="color: rgb(20, 123, 88)"],
+.dark .section-white .card-white[style*="color: rgb(20, 123, 88)"] {
   color: rgb(20, 123, 88) !important;
 }
-.dark .section-white .card-white [style*="color: rgb(7, 63, 54)"] {
+.dark .section-white .card-white [style*="color: rgb(7, 63, 54)"],
+.dark .section-white .card-white[style*="color: rgb(7, 63, 54)"] {
   color: rgb(7, 63, 54) !important;
 }
 
