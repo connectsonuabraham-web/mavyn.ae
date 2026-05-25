@@ -443,9 +443,13 @@ video {
   border-color: rgba(12, 43, 21, 0.1) !important;
 }
 
-/* Inline white backgrounds inside sections (dropdowns etc) — but NOT cards */
+/* Inline white backgrounds inside sections (dropdowns etc) — but NOT inside cards */
 .dark .section-white [style*="background: rgb(255, 255, 255)"]:not(.card-white) {
   background: var(--dark-card-bg) !important;
+}
+/* Reset: don't change backgrounds inside card-white */
+.dark .section-white .card-white [style*="background: rgb(255, 255, 255)"] {
+  background: rgb(255, 255, 255) !important;
 }
 
 /* Ensure images don't get inverted */
