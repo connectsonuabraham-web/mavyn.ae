@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/0fipm2c75szgt.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"team","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"pratick-dalal","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"sv7TB7PiEV_qHby0nkAOa"}
+:HL["/_next/static/chunks/0fccwduflqywu.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"team","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"pratick-dalal","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5lw7KGwN5o9UwSem9pNpQ"}
