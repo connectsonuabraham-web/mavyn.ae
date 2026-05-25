@@ -333,7 +333,7 @@ export default function ProfilePageClient({
               className="mt-12"
             >
               <div className="relative flex items-center justify-between">
-                <span className="absolute top-[9px] left-0 right-0 h-[2px] bg-cyan-brand/30" />
+                <span className="absolute top-[9px] left-0 right-0 h-[2px]" style={{ background: "rgba(20, 123, 88, 0.3)" }} />
                 {profile.timeline.map((item, i) => (
                   <div key={i} className="group/dot relative flex flex-col items-center z-10 cursor-pointer">
                     <span className="block w-[10px] h-[10px] rounded-full bg-cyan-brand border-2 border-cyan-brand transition-all duration-300 group-hover/dot:scale-150 group-hover/dot:shadow-[0_0_12px_rgba(20,123,88,0.6)]" />

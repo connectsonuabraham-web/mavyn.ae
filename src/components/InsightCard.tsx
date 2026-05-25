@@ -53,7 +53,7 @@ export default function InsightCard({
             }}
           />
           <div
-            className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+            className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full card-white"
             style={{ background: "#90D890" }}
           >
             <span className="block w-[6px] h-[6px] rotate-45" style={{ background: "#073F36" }} />
