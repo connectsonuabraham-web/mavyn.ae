@@ -307,22 +307,27 @@ video {
 
 
 /* Premium CTA button styles — global so they work everywhere */
+/* These must NEVER be affected by dark mode */
 .premium-cta {
-  background: #073F36;
+  background: #073F36 !important;
 }
 .premium-cta:hover {
-  background: #00A65A;
+  background: #00A65A !important;
 }
 .premium-cta__text {
   color: #FFFFFF !important;
 }
 .premium-cta__circle {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15) !important;
   color: white !important;
 }
 .premium-cta:hover .premium-cta__circle {
-  background: #FFFFFF;
+  background: #FFFFFF !important;
   color: #00A65A !important;
+}
+.premium-cta__arrow,
+.premium-cta__arrow * {
+  color: inherit !important;
 }
 .premium-cta__arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -361,24 +366,28 @@ video {
 
 /* Premium CTA White variant — for dark backgrounds */
 .premium-cta-white {
-  background: #00A65A;
+  background: #00A65A !important;
 }
 .premium-cta-white:hover {
-  background: #FFFFFF;
+  background: #FFFFFF !important;
 }
 .premium-cta-white__text {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 .premium-cta-white:hover .premium-cta-white__text {
-  color: #073F36;
+  color: #073F36 !important;
 }
 .premium-cta-white__circle {
-  background: #FFFFFF;
-  color: #00A65A;
+  background: #FFFFFF !important;
+  color: #00A65A !important;
 }
 .premium-cta-white:hover .premium-cta-white__circle {
-  background: #073F36;
-  color: #FFFFFF;
+  background: #073F36 !important;
+  color: #FFFFFF !important;
+}
+.premium-cta-white__arrow,
+.premium-cta-white__arrow * {
+  color: inherit !important;
 }
 .premium-cta-white__arrow {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
