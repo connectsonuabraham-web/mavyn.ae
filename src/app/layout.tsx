@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/asdf.png",
         width: 1200,
         height: 630,
         alt: "MAVYN — UAE Compliance & Regulatory Advisory"
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "MAVYN — UAE Compliance & Regulatory Advisory",
     description:
       "Regulatory clarity, compliance capability and evidence-led advisory for UAE businesses.",
-    images: ["/images/og-image.png"]
+    images: ["/images/asdf.png"]
   }
 };
 
