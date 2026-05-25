@@ -67,7 +67,7 @@ export default function TwelvePracticesCarousel({ practices }: { practices: Prac
                 <div className="flex flex-col p-5 sm:p-8 lg:p-14">
                   <div className="flex-1 flex flex-col justify-center">
                     <span
-                      className="inline-block w-fit px-4 py-1.5 rounded-full text-[12px] font-medium mb-5"
+                      className="inline-block w-fit px-4 py-1.5 rounded-full text-[12px] font-medium mb-5 card-white"
                       style={{ background: "#90D890", color: "#073F36" }}
                     >
                       {String(active + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}

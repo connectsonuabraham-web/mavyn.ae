@@ -25,13 +25,13 @@ export default function RegulatoryRadarRow({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative grid grid-cols-[60px_1fr] md:grid-cols-[110px_auto_1fr_360px] items-stretch min-h-[100px] md:min-h-[120px] rounded-2xl overflow-hidden cursor-pointer hover:-translate-y-0.5 transition-all duration-500 card-white"
+      className="group relative grid grid-cols-[60px_1fr] md:grid-cols-[110px_auto_1fr_360px] items-stretch min-h-[100px] md:min-h-[120px] rounded-2xl overflow-hidden cursor-pointer hover:-translate-y-0.5 transition-all duration-500"
       style={{ background: "#073F36", border: "1px solid rgba(22,214,163,0.12)" }}
     >
       {/* Icon */}
       <div className="flex items-center justify-center border-r" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
         <div
-          className="w-[44px] h-[44px] md:w-[52px] md:h-[52px] rounded-xl flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:stroke-[2.5]"
+          className="w-[44px] h-[44px] md:w-[52px] md:h-[52px] rounded-xl flex items-center justify-center [&>svg]:w-6 [&>svg]:h-6 [&>svg]:stroke-[2.5] card-white"
           style={{ background: "#90D890", color: "#073F36" }}
         >
           {row.icon}

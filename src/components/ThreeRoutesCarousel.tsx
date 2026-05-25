@@ -34,7 +34,7 @@ export default function ThreeRoutesCarousel() {
     <section className="relative py-12 lg:py-16 section-white">
       <div className="lg:mx-10">
         {/* Outer light green box — full width on mobile */}
-        <div className="sm:rounded-2xl p-4 sm:p-8 lg:p-10" style={{ background: "var(--bg)" }}>
+        <div className="sm:rounded-2xl p-4 sm:p-8 lg:p-10 card-white" style={{ background: "var(--bg)" }}>
           {/* Heading inside green box */}
           <div className="text-center mb-8 lg:mb-10">
             <h2
@@ -78,7 +78,7 @@ export default function ThreeRoutesCarousel() {
                 <div className="flex flex-col p-5 sm:p-8 lg:p-14">
                   <div className="flex-1 flex flex-col justify-center">
                     <span
-                      className="inline-block w-fit px-4 py-1.5 rounded-full text-[12px] font-medium mb-5"
+                      className="inline-block w-fit px-4 py-1.5 rounded-full text-[12px] font-medium mb-5 card-white"
                       style={{ background: "#90D890", color: "#073F36" }}
                     >
                       {step.step}

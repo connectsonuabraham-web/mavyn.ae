@@ -179,7 +179,7 @@ function PracticeCard({
       >
         {/* FRONT — light gray */}
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center p-8 rounded-2xl"
+          className="absolute inset-0 flex flex-col items-center justify-center p-8 rounded-2xl card-white"
           style={{ background: "var(--bg)", backfaceVisibility: "hidden" }}
         >
           <div

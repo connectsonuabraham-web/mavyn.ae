@@ -74,7 +74,7 @@ function StickyCard({
         <div className="relative h-full flex flex-col justify-between p-8 lg:p-12">
           <div>
             <span
-              className="inline-block px-4 py-1.5 rounded-full text-[12px] font-medium mb-5"
+              className="inline-block px-4 py-1.5 rounded-full text-[12px] font-medium mb-5 card-white"
               style={{ background: "#90D890", color: "#073F36" }}
             >
               Step {step.step}
