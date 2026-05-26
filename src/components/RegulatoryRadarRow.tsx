@@ -22,7 +22,6 @@ export default function RegulatoryRadarRow({
   i: number;
 }) {
   return (
-    <Link href={row.href || "/contact"} className="block">
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -59,6 +58,21 @@ export default function RegulatoryRadarRow({
         <p className="text-[11.5px] md:text-[13px] lg:text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
           {row.line2}
         </p>
+        {row.href && (
+          <Link
+            href={row.href}
+            className="mt-3 inline-flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/50 group-hover:text-[#90D890] transition-colors duration-300"
+          >
+            Discuss with the team
+            <svg width="18" height="6" viewBox="0 0 22 8" fill="none">
+              <path
+                d="M0 4H20M16 1L20 4L16 7"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+            </svg>
+          </Link>
+        )}
       </div>
 
       {/* Image strip — hidden on mobile */}
@@ -80,7 +94,6 @@ export default function RegulatoryRadarRow({
         />
       </div>
     </motion.div>
-    </Link>
   );
 }
 

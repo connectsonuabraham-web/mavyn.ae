@@ -15,7 +15,7 @@ const rows = [
     line2: "Data subject rights, controller and processor duties.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
     icon: <DocIcon className="w-7 h-7" />,
-    href: "/services/payroll-compliance-bundle"
+    href: "/services/aml-cft-risk-tools"
   },
   {
     index: "02",
@@ -42,7 +42,7 @@ const rows = [
     line2: "Relevant-activity tests and substance reporting.",
     image: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?auto=format&fit=crop&w=1600&q=80",
     icon: <ChartIcon className="w-7 h-7" />,
-    href: "/services/payroll-compliance-bundle"
+    href: "/services/auditing-services"
   },
   {
     index: "05",
@@ -51,7 +51,7 @@ const rows = [
     line2: "UBO registers, disclosure and verification.",
     image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1600&q=80",
     icon: <UsersIcon className="w-7 h-7" />,
-    href: "/services/payroll-compliance-bundle"
+    href: "/services/auditing-services"
   },
   {
     index: "06",

@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -74,22 +73,22 @@ export default function ServiceCard({
             {subtitle}
           </p>
 
-          {/* Learn More — hidden by default, shown on hover */}
+          {/* Discuss with the team — hidden by default, shown on hover */}
           <div className="mt-auto pt-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-400 delay-200">
             <span
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-semibold tracking-[0.1em] uppercase"
-              style={{ background: "#073F36", color: "#FFFFFF" }}
+              className="premium-cta inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full transition-colors duration-350 cursor-pointer"
             >
-              Learn More
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span className="premium-cta__text text-[11px] sm:text-[13px] font-medium whitespace-nowrap">
+                Discuss with the team
+              </span>
+              <span className="premium-cta__circle relative flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-350 overflow-hidden">
+                <span className="premium-cta__arrow absolute inset-0 flex items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </span>
             </span>
-
-            {/* Arrow circle — hover state */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: "#073F36" }}>
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
           </div>
         </div>
       </Link>

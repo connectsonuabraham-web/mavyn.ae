@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import PremiumCTA from "./PremiumCTA";
 
 type Props = {
   title: string;
@@ -58,6 +59,21 @@ export default function ServiceLandingPage({ title, subtitle, description, image
       {/* CONTENT */}
       <section className="relative py-20 lg:py-28 section-white">
         <div className="mx-auto max-w-[860px] px-6 lg:px-12">
+          {/* Back link */}
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase text-ink/45 hover:text-cyan-brand transition-colors duration-300 mb-10"
+          >
+            <svg width="18" height="6" viewBox="0 0 22 8" fill="none" className="rotate-180">
+              <path
+                d="M0 4H20M16 1L20 4L16 7"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+            </svg>
+            Back to services
+          </Link>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,16 +99,7 @@ export default function ServiceLandingPage({ title, subtitle, description, image
             </div>
 
             <div className="mt-12">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 cursor-pointer hover:opacity-70"
-                style={{ color: "#FFFFFF" }}
-              >
-                Learn More
-                <svg width="22" height="8" viewBox="0 0 22 8" fill="none">
-                  <path d="M0 4H20M16 1L20 4L16 7" stroke="currentColor" strokeWidth="1.2" />
-                </svg>
-              </Link>
+              <PremiumCTA href="/contact">Discuss with the team</PremiumCTA>
             </div>
           </motion.div>
         </div>
