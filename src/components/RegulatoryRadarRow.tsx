@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export type RadarRow = {
@@ -10,6 +11,7 @@ export type RadarRow = {
   line2: string;
   image: string;
   icon: React.ReactNode;
+  href?: string;
 };
 
 export default function RegulatoryRadarRow({
@@ -20,6 +22,7 @@ export default function RegulatoryRadarRow({
   i: number;
 }) {
   return (
+    <Link href={row.href || "/contact"} className="block">
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -77,6 +80,7 @@ export default function RegulatoryRadarRow({
         />
       </div>
     </motion.div>
+    </Link>
   );
 }
 

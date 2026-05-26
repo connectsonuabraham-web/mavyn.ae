@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import PremiumCTA from "./PremiumCTA";
 
 type Props = {
   title: string;
@@ -84,7 +83,16 @@ export default function ServiceLandingPage({ title, subtitle, description, image
             </div>
 
             <div className="mt-12">
-              <PremiumCTA href="/contact">Discuss This Service</PremiumCTA>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 cursor-pointer hover:opacity-70"
+                style={{ color: "#FFFFFF" }}
+              >
+                Learn More
+                <svg width="22" height="8" viewBox="0 0 22 8" fill="none">
+                  <path d="M0 4H20M16 1L20 4L16 7" stroke="currentColor" strokeWidth="1.2" />
+                </svg>
+              </Link>
             </div>
           </motion.div>
         </div>
