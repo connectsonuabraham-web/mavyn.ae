@@ -63,7 +63,7 @@ export default function RegulatoryRadarRow({
             href={row.href}
             className="mt-3 inline-flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/50 group-hover:text-[#90D890] transition-colors duration-300"
           >
-            Discuss with the team
+            Learn more
             <svg width="18" height="6" viewBox="0 0 22 8" fill="none">
               <path
                 d="M0 4H20M16 1L20 4L16 7"
