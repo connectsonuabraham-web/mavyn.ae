@@ -51,13 +51,13 @@ export default function TeamPageClient({ members }: { members: TeamMemberData[] 
           {founderMember && (
             <div className="flex flex-col items-center">
               <Link href={`/team/${founderMember.slug}`} className="group flex flex-col items-center text-center cursor-pointer">
-                <div className="relative w-full max-w-[520px] overflow-hidden rounded-2xl border border-bg-deep/10 group-hover:border-cyan-brand/45 group-hover:shadow-[0_20px_60px_-15px_rgba(20,123,88,0.2)] transition-all duration-500">
+                <div className="relative w-full max-w-[420px] overflow-hidden rounded-2xl border border-bg-deep/10 group-hover:border-cyan-brand/45 group-hover:shadow-[0_20px_60px_-15px_rgba(20,123,88,0.2)] transition-all duration-500">
                   <Image
                     src={founderMember.image}
                     alt={founderMember.name}
-                    width={520}
-                    height={693}
-                    sizes="520px"
+                    width={420}
+                    height={560}
+                    sizes="420px"
                     className="w-full h-auto object-contain grayscale-[20%] contrast-[1.05] transition-all duration-700 group-hover:grayscale-0"
                   />
                   <div
