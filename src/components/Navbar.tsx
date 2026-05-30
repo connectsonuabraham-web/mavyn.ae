@@ -291,7 +291,7 @@ export default function Navbar() {
                             onClick={() => setOpen(false)}
                             className={cx(
                               "group relative flex items-center justify-between py-3.5 lg:py-4 transition-colors duration-300",
-                              active ? "text-ink" : "text-ink/85 hover:text-cyan-brand"
+                              active ? "text-ink" : "text-ink hover:text-cyan-brand"
                             )}
                           >
                             <div className="flex items-baseline gap-5 lg:gap-7">
@@ -302,7 +302,7 @@ export default function Navbar() {
                                 {num}
                               </span>
                               <span
-                                className="font-light leading-none"
+                                className="font-medium leading-none"
                                 style={{ fontSize: "clamp(22px, 2.4vw, 34px)" }}
                               >
                                 {l.label}
