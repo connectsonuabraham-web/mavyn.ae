@@ -291,7 +291,7 @@ export default function Navbar() {
                             : "text-ink-muted/55 hover:text-ink"
                         )}
                         style={{
-                          fontSize: "clamp(26px, 3.6vw, 52px)",
+                          fontSize: "clamp(18px, 2.2vw, 30px)",
                           fontWeight: 400,
                           lineHeight: 1.3,
                           paddingTop: "0.05em",
