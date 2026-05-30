@@ -201,7 +201,7 @@ export default function Navbar() {
 
             <div className="relative w-full h-full flex flex-col overflow-y-auto">
               {/* Top bar — logo + close button */}
-              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 px-6 lg:px-14 pt-7 pb-5 lg:py-9">
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 px-6 lg:px-14 pt-3 pb-2 lg:pt-4 lg:pb-3">
                 <div className="lg:col-span-7 xl:col-span-7 flex items-center">
                   <Link
                     href="/"
@@ -209,11 +209,11 @@ export default function Navbar() {
                     className="cursor-pointer -ml-7 sm:-ml-8 lg:-ml-9"
                     aria-label="MAVYN home"
                   >
-                    <Logo size="xl" />
+                    <Logo size="lg" />
                   </Link>
                 </div>
 
-                <div className="absolute top-7 right-6 lg:top-9 lg:right-14">
+                <div className="absolute top-4 right-6 lg:top-5 lg:right-14">
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
@@ -234,7 +234,7 @@ export default function Navbar() {
               </div>
 
               {/* Body — split layout */}
-              <div className="relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 px-6 lg:px-14 pb-10">
+              <div className="relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 px-6 lg:px-14 pb-6 lg:pb-8">
                 {/* LEFT: Menu nav */}
                 <div className="lg:col-span-7 xl:col-span-7 flex flex-col">
                   {/* Eyebrow */}
@@ -242,7 +242,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.15 }}
-                    className="flex items-center gap-2.5 mb-8 lg:mb-12"
+                    className="flex items-center gap-2.5 mb-3 lg:mb-4"
                   >
                     <span
                       aria-hidden
@@ -290,28 +290,28 @@ export default function Navbar() {
                             href={l.href}
                             onClick={() => setOpen(false)}
                             className={cx(
-                              "group relative flex items-center justify-between py-4 lg:py-5 transition-colors duration-300",
+                              "group relative flex items-center justify-between py-2 lg:py-2.5 transition-colors duration-300",
                               active ? "text-ink" : "text-ink/85 hover:text-cyan-brand"
                             )}
                           >
                             <div className="flex items-baseline gap-5 lg:gap-7">
                               <span
-                                className="text-[11px] tracking-[0.3em] uppercase opacity-50"
+                                className="text-[10px] tracking-[0.3em] uppercase opacity-50"
                                 style={{ fontWeight: 500 }}
                               >
                                 {num}
                               </span>
                               <span
                                 className="font-light leading-none"
-                                style={{ fontSize: "clamp(22px, 2.6vw, 36px)" }}
+                                style={{ fontSize: "clamp(18px, 1.9vw, 26px)" }}
                               >
                                 {l.label}
                               </span>
                             </div>
 
                             {/* Animated arrow */}
-                            <span className="relative flex items-center justify-center w-9 h-9 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "#073F36" }}>
-                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <span className="relative flex items-center justify-center w-8 h-8 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "#073F36" }}>
+                              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                                 <path d="M4 12L12 4M12 4H6M12 4V10" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                               </svg>
                             </span>
@@ -327,13 +327,13 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="lg:col-span-5 xl:col-span-5 flex flex-col gap-6 lg:gap-8"
+                  className="lg:col-span-5 xl:col-span-5 flex flex-col gap-4 lg:gap-6"
                 >
                   {/* Featured card */}
                   <Link
                     href="/contact"
                     onClick={() => setOpen(false)}
-                    className="group relative block rounded-2xl overflow-hidden p-7 lg:p-9 min-h-[260px] lg:min-h-[340px] cursor-pointer"
+                    className="group relative block rounded-2xl overflow-hidden p-6 lg:p-8 min-h-[200px] lg:min-h-[260px] cursor-pointer"
                     style={{ background: "#073F36" }}
                   >
                     <div className="relative z-10 flex flex-col h-full">
