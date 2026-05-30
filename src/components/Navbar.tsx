@@ -198,178 +198,225 @@ export default function Navbar() {
               className="absolute inset-0"
               style={{ background: "var(--bg)" }}
             />
-            {/* Hairline frame top */}
-            <span
+
+            {/* Decorative grid lines */}
+            <div
               aria-hidden
-              className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-ink/10"
+              className="pointer-events-none absolute inset-0 hidden lg:block"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, rgba(7,63,54,0.06) 1px, transparent 1px)",
+                backgroundSize: "calc(100% / 12) 100%"
+              }}
             />
 
             <div className="relative w-full h-full flex flex-col overflow-y-auto">
-              {/* Top bar — close button (mobile shows logo, desktop shows MENU label) */}
-              <div className="relative flex items-center justify-between px-6 lg:px-14 pt-7 pb-5 lg:py-9 border-b border-ink/10 lg:border-0">
-                {/* Mobile: show MAVYN logo. Desktop: empty (MENU label is in body) */}
+              {/* Top bar — logo + close button */}
+              <div className="relative flex items-center justify-between px-6 lg:px-14 pt-7 pb-5 lg:py-9">
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="lg:hidden cursor-pointer"
+                  className="cursor-pointer"
                   aria-label="MAVYN home"
                 >
                   <Logo size="md" />
                 </Link>
 
-                <div className="hidden lg:block" />
-
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="cursor-pointer p-2 text-ink/85 hover:text-cyan-brand transition-colors"
+                  className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300"
+                  style={{ background: "#073F36" }}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M3 3L21 21M21 3L3 21"
-                      stroke="currentColor"
-                      strokeWidth="1.4"
+                      stroke="white"
+                      strokeWidth="1.6"
                       strokeLinecap="round"
                     />
                   </svg>
                 </button>
               </div>
 
-              {/* MENU eyebrow */}
-              <motion.div
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="px-6 lg:px-14 pt-8 lg:pt-2 flex items-center gap-2.5"
-              >
-                <span
-                  aria-hidden
-                  className="block w-[10px] h-[10px] rotate-45 bg-cyan-brand shadow-[0_0_12px_rgba(20, 123, 88,0.7)]"
-                />
-                <span
-                  className="text-[12px] tracking-[0.4em] uppercase text-ink"
-                  style={{ fontWeight: 500 }}
-                >
-                  Menu
-                </span>
-              </motion.div>
-
-              {/* Menu links */}
-              <motion.nav
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.06,
-                      delayChildren: 0.2
-                    }
-                  }
-                }}
-                className="px-6 lg:px-14 mt-5 flex flex-col"
-              >
-                {menuLinks.map((l, i) => {
-                  const active = isActive(l.href);
-                  
-                  return (
-                    <motion.div
-                      key={l.href}
-                      variants={{
-                        hidden: { opacity: 0, x: -16 },
-                        visible: { opacity: 1, x: 0 }
-                      }}
-                    >
-                      <Link
-                        href={l.href}
-                        onClick={() => setOpen(false)}
-                        className={cx(
-                          "group relative inline-flex items-center uppercase transition-colors overflow-hidden",
-                          active
-                            ? "text-ink"
-                            : "text-ink-muted/55 hover:text-ink"
-                        )}
-                        style={{
-                          fontSize: "clamp(18px, 2.2vw, 30px)",
-                          fontWeight: 400,
-                          lineHeight: 1.3,
-                          paddingTop: "0.05em",
-                          paddingBottom: "0.05em"
-                        }}
-                      >
-                        
-                        <span className="relative">
-                          {l.label}
-                          <span className="absolute bottom-1 left-0 h-[2px] w-full bg-cyan-brand origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
-                        </span>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </motion.nav>
-
-              {/* Contact Us CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="px-6 lg:px-14 mt-6 lg:mt-0 lg:absolute lg:right-14 lg:bottom-32"
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="premium-cta inline-flex items-center gap-3 pl-7 pr-2 py-2 rounded-full transition-colors duration-350 cursor-pointer w-full lg:w-auto justify-center lg:justify-start"
-                >
-                  <span className="premium-cta__text text-[14px] lg:text-[14.5px] tracking-[0.18em] uppercase font-medium text-white">
-                    Contact Us
-                  </span>
-                  <span className="premium-cta__circle relative flex items-center justify-center w-9 h-9 rounded-full transition-colors duration-350 overflow-hidden">
-                    <span className="premium-cta__arrow absolute inset-0 flex items-center justify-center">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </span>
-                </Link>
-              </motion.div>
-
-              {/* Social media + contact info */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="px-6 lg:px-14 pb-8 lg:pb-10 pt-8 lg:pt-6 mt-auto"
-              >
-                {/* Contact info */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 text-[14px] mb-6" style={{ color: "var(--ink)" }}>
-                  <a
-                    href={`mailto:${contactEmail}`}
-                    className="transition-colors duration-300 cursor-pointer"
-                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
-                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}
+              {/* Body — split layout */}
+              <div className="relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 px-6 lg:px-14 pb-10">
+                {/* LEFT: Menu nav */}
+                <div className="lg:col-span-7 xl:col-span-7 flex flex-col">
+                  {/* Eyebrow */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.15 }}
+                    className="flex items-center gap-2.5 mb-8 lg:mb-12"
                   >
-                    {contactEmail}
-                  </a>
-                  <span>{contactPhone}</span>
+                    <span
+                      aria-hidden
+                      className="block w-[10px] h-[10px] rotate-45"
+                      style={{ background: "#16D6A3", boxShadow: "0 0 12px rgba(22,214,163,0.6)" }}
+                    />
+                    <span
+                      className="text-[11px] tracking-[0.4em] uppercase"
+                      style={{ color: "var(--ink)", fontWeight: 500 }}
+                    >
+                      Navigation
+                    </span>
+                  </motion.div>
+
+                  {/* Menu links — numbered */}
+                  <motion.nav
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      hidden: {},
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.06,
+                          delayChildren: 0.2
+                        }
+                      }
+                    }}
+                    className="flex flex-col"
+                  >
+                    {menuLinks.map((l, i) => {
+                      const active = isActive(l.href);
+                      const num = String(i + 1).padStart(2, "0");
+
+                      return (
+                        <motion.div
+                          key={l.href}
+                          variants={{
+                            hidden: { opacity: 0, x: -16 },
+                            visible: { opacity: 1, x: 0 }
+                          }}
+                          className="border-b"
+                          style={{ borderColor: "rgba(12,43,21,0.08)" }}
+                        >
+                          <Link
+                            href={l.href}
+                            onClick={() => setOpen(false)}
+                            className={cx(
+                              "group relative flex items-center justify-between py-4 lg:py-5 transition-colors duration-300",
+                              active ? "text-ink" : "text-ink/85 hover:text-cyan-brand"
+                            )}
+                          >
+                            <div className="flex items-baseline gap-5 lg:gap-7">
+                              <span
+                                className="text-[11px] tracking-[0.3em] uppercase opacity-50"
+                                style={{ fontWeight: 500 }}
+                              >
+                                {num}
+                              </span>
+                              <span
+                                className="font-light leading-none"
+                                style={{ fontSize: "clamp(22px, 2.6vw, 36px)" }}
+                              >
+                                {l.label}
+                              </span>
+                            </div>
+
+                            {/* Animated arrow */}
+                            <span className="relative flex items-center justify-center w-9 h-9 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "#073F36" }}>
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </span>
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.nav>
                 </div>
 
-                {/* Social media */}
-                <p className="text-[11px] tracking-[0.4em] uppercase font-medium mb-4" style={{ color: "var(--ink)" }}>
-                  Social Media
-                </p>
-                <div className="flex items-center gap-5">
-                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
-                    <LinkedInIcon className="w-6 h-6" />
-                  </a>
-                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
-                    <InstagramIcon className="w-6 h-6" />
-                  </a>
-                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" className="transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}>
-                    <XIcon className="w-6 h-6" />
-                  </a>
-                </div>
-              </motion.div>
+                {/* RIGHT: Featured panel */}
+                <motion.aside
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="lg:col-span-5 xl:col-span-5 flex flex-col gap-6 lg:gap-8"
+                >
+                  {/* Featured card */}
+                  <Link
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    className="group relative block rounded-2xl overflow-hidden p-7 lg:p-9 min-h-[260px] lg:min-h-[340px] cursor-pointer"
+                    style={{ background: "#073F36" }}
+                  >
+                    <div className="relative z-10 flex flex-col h-full">
+                      <span className="text-[11px] tracking-[0.4em] uppercase" style={{ color: "#16D6A3" }}>
+                        Get in touch
+                      </span>
+                      <h3 className="mt-4 font-light text-white leading-[1.1]" style={{ fontSize: "clamp(26px, 2.4vw, 36px)" }}>
+                        Tell us where the regulatory pressure is.
+                      </h3>
+                      <p className="mt-3 text-[14px] leading-relaxed text-white/65 max-w-sm">
+                        Book a compliance discussion with our team — we'll start where it matters.
+                      </p>
+
+                      <div className="mt-auto pt-8 inline-flex items-center gap-3 text-white">
+                        <span className="text-[12px] tracking-[0.25em] uppercase">Contact us</span>
+                        <span className="flex items-center justify-center w-9 h-9 rounded-full transition-transform duration-300 group-hover:translate-x-1" style={{ background: "#16D6A3" }}>
+                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#073F36" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Decorative blob */}
+                    <span
+                      aria-hidden
+                      className="absolute -top-20 -right-20 w-72 h-72 rounded-full opacity-30 blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-50"
+                      style={{ background: "#16D6A3" }}
+                    />
+                  </Link>
+
+                  {/* Contact + Social */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+                    <div>
+                      <p className="text-[10px] tracking-[0.4em] uppercase mb-3 opacity-50" style={{ color: "var(--ink)" }}>
+                        Email
+                      </p>
+                      <a
+                        href={`mailto:${contactEmail}`}
+                        className="text-[14px] transition-colors duration-300 cursor-pointer block"
+                        style={{ color: "var(--ink)" }}
+                        onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#00A65A"}
+                        onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--ink)"}
+                      >
+                        {contactEmail}
+                      </a>
+                      <p className="text-[10px] tracking-[0.4em] uppercase mb-3 mt-5 opacity-50" style={{ color: "var(--ink)" }}>
+                        Phone
+                      </p>
+                      <span className="text-[14px]" style={{ color: "var(--ink)" }}>{contactPhone}</span>
+                    </div>
+
+                    <div>
+                      <p className="text-[10px] tracking-[0.4em] uppercase mb-3 opacity-50" style={{ color: "var(--ink)" }}>
+                        Social
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)", borderColor: "rgba(12,43,21,0.15)" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.background = "#073F36"; (e.currentTarget as HTMLElement).style.borderColor = "#073F36"; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(12,43,21,0.15)"; }}>
+                          <LinkedInIcon className="w-4 h-4" />
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)", borderColor: "rgba(12,43,21,0.15)" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.background = "#073F36"; (e.currentTarget as HTMLElement).style.borderColor = "#073F36"; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(12,43,21,0.15)"; }}>
+                          <InstagramIcon className="w-4 h-4" />
+                        </a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" className="flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-300 cursor-pointer" style={{ color: "var(--ink)", borderColor: "rgba(12,43,21,0.15)" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.background = "#073F36"; (e.currentTarget as HTMLElement).style.borderColor = "#073F36"; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(12,43,21,0.15)"; }}>
+                          <XIcon className="w-4 h-4" />
+                        </a>
+                      </div>
+
+                      <p className="text-[10px] tracking-[0.4em] uppercase mb-3 mt-5 opacity-50" style={{ color: "var(--ink)" }}>
+                        Location
+                      </p>
+                      <span className="text-[14px]" style={{ color: "var(--ink)" }}>Sharjah, UAE</span>
+                    </div>
+                  </div>
+                </motion.aside>
+              </div>
             </div>
           </motion.div>
         )}
