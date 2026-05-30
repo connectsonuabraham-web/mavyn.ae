@@ -167,15 +167,15 @@ export default function Navbar() {
               <button
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
-                className="cursor-pointer relative flex flex-col items-center justify-center gap-[5px] w-9 h-9 rounded-full border transition-colors duration-300 hover:border-cyan-brand/50"
+                className="cursor-pointer relative flex flex-col items-center justify-center gap-[5px] w-9 h-9 rounded-full transition-all duration-300 hover:opacity-90"
                 style={{
-                  borderColor: "rgba(20,123,88,0.22)",
-                  background: "rgba(20,123,88,0.06)"
+                  background: "#073F36",
+                  borderColor: "#073F36"
                 }}
               >
-                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
-                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
-                <span className="block w-3 h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
+                <span className="block w-[18px] h-[2px] rounded-full bg-white" />
+                <span className="block w-[18px] h-[2px] rounded-full bg-white" />
+                <span className="block w-3 h-[2px] rounded-full bg-white" />
               </button>
             </div>
           </div>
