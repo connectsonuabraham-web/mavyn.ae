@@ -14,7 +14,7 @@ import { IMG, CAP_IMG } from "@/lib/images";
 const experts = [
   {
     name: "Muna Salvi",
-    role: "Founder",
+    role: "Founder & Advisor",
     practice: "Governance & Transformation",
     image: "/images/Muna%20Salvi.png"
   },
