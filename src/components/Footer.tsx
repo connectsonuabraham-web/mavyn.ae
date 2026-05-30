@@ -174,7 +174,7 @@ export default function Footer() {
         <div className="mt-6 pt-6 border-t text-[12.5px]" style={{ borderColor: "rgba(12,43,21,0.12)", color: "#5F6B65" }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Left — Copyright */}
-            <span>&copy; 2026 MAVYN Advisory. All Rights Reserved</span>
+            <span>&copy; 2026 MAVYN. All Rights Reserved</span>
 
             {/* Center — Privacy & Terms */}
             <div className="flex items-center gap-5">
