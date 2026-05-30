@@ -23,7 +23,7 @@ export const teamProfiles: TeamProfile[] = [
   {
     slug: "muna-salvi",
     name: "Muna Salvi",
-    title: "Founder",
+    title: "Founder & Advisor",
     profileLabel: "FOUNDER PROFILE",
     profileNumber: "",
     practice: "Compliance, Risk & Financial Crime Advisory",
