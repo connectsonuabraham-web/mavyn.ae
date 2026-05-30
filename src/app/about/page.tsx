@@ -134,7 +134,7 @@ const clientSegments = [
 
 function WhoWeServeSection() {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28 font-sans" style={{ background: "#E0F2E0" }}>
+    <section id="who-we-serve" className="relative overflow-hidden py-20 lg:py-28 font-sans scroll-mt-24 lg:scroll-mt-32" style={{ background: "#E0F2E0" }}>
       <div className="absolute inset-0 grid-bg opacity-[0.06] pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1320px] px-6 lg:px-12">

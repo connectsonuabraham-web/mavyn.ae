@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/0x8trflt3u3m4.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"insights","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"dnfbp-playbook-aml-you-can-evidence","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"K8blsg_cH3Biaac3BFMKj"}
+:HL["/_next/static/chunks/0wqiz82img5cn.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"insights","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"dnfbp-playbook-aml-you-can-evidence","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"0GY7Xr3dgPCNjLtXZDd59"}

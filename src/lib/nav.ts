@@ -10,9 +10,10 @@ export const menuLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
-  { label: "Insights", href: "/insights" },
+  { label: "Services", href: "/services" },
+  { label: "Who We Serve", href: "/about#who-we-serve" },
   { label: "Team", href: "/team" },
-  { label: "Services", href: "/services" }
+  { label: "Insights", href: "/insights" }
 ];
 
 // Footer links (kept for legacy imports)
