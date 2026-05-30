@@ -46,7 +46,7 @@ export const teamProfiles: TeamProfile[] = [
       { year: "ICA", label: "Compliance" },
       { year: "Mavyn", label: "Founder · CEO" }
     ],
-    image: "/images/muna.team.png",
+    image: "/images/Muna%20Salvi.png",
     profileImage: "/images/Muna%20Salvi.png"
   },
   {
