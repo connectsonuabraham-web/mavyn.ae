@@ -116,11 +116,15 @@ export default function Navbar() {
               <button
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
-                className="cursor-pointer flex flex-col gap-[5px] p-2 group"
+                className="cursor-pointer flex flex-col items-center justify-center gap-[5px] w-11 h-11 rounded-full border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                style={{
+                  borderColor: "#073F36",
+                  background: "#073F36"
+                }}
               >
-                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
-                <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
-                <span className="block w-4 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
+                <span className="block w-5 h-[2.5px] rounded-full bg-white" />
+                <span className="block w-5 h-[2.5px] rounded-full bg-white" />
+                <span className="block w-3.5 h-[2.5px] rounded-full bg-white" />
               </button>
 
               <Link href="/" className="cursor-pointer shrink-0" aria-label="MAVYN home">
