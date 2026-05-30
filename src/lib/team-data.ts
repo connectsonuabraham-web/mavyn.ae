@@ -23,7 +23,7 @@ export const teamProfiles: TeamProfile[] = [
   {
     slug: "muna-salvi",
     name: "Muna Salvi",
-    title: "CEO & Founder",
+    title: "Founder",
     profileLabel: "FOUNDER PROFILE",
     profileNumber: "",
     practice: "Compliance, Risk & Financial Crime Advisory",
@@ -44,7 +44,7 @@ export const teamProfiles: TeamProfile[] = [
       { year: "ACAMS", label: "Anti-Money Laundering" },
       { year: "CFE", label: "Fraud Examiner" },
       { year: "ICA", label: "Compliance" },
-      { year: "Mavyn", label: "Founder · CEO" }
+      { year: "Mavyn", label: "Founder" }
     ],
     image: "/images/Muna%20Salvi.png",
     profileImage: "/images/Muna%20Salvi.png"
