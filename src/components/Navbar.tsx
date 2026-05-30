@@ -201,32 +201,36 @@ export default function Navbar() {
 
             <div className="relative w-full h-full flex flex-col overflow-y-auto">
               {/* Top bar — logo + close button */}
-              <div className="relative flex items-center justify-between px-6 lg:px-14 pt-7 pb-5 lg:py-9">
-                <Link
-                  href="/"
-                  onClick={() => setOpen(false)}
-                  className="cursor-pointer"
-                  aria-label="MAVYN home"
-                >
-                  <Logo size="md" />
-                </Link>
+              <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 px-6 lg:px-14 pt-7 pb-5 lg:py-9">
+                <div className="lg:col-span-7 xl:col-span-7 flex items-center">
+                  <Link
+                    href="/"
+                    onClick={() => setOpen(false)}
+                    className="cursor-pointer"
+                    aria-label="MAVYN home"
+                  >
+                    <Logo size="md" />
+                  </Link>
+                </div>
 
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Close menu"
-                  className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300"
-                  style={{ background: "#073F36" }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M3 3L21 21M21 3L3 21"
-                      stroke="white"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </button>
+                <div className="absolute top-7 right-6 lg:top-9 lg:right-14">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    aria-label="Close menu"
+                    className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300"
+                    style={{ background: "#073F36" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M3 3L21 21M21 3L3 21"
+                        stroke="white"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               {/* Body — split layout */}
