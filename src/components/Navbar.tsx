@@ -199,17 +199,6 @@ export default function Navbar() {
               style={{ background: "var(--bg)" }}
             />
 
-            {/* Decorative grid lines */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 hidden lg:block"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right, rgba(7,63,54,0.06) 1px, transparent 1px)",
-                backgroundSize: "calc(100% / 12) 100%"
-              }}
-            />
-
             <div className="relative w-full h-full flex flex-col overflow-y-auto">
               {/* Top bar — logo + close button */}
               <div className="relative flex items-center justify-between px-6 lg:px-14 pt-7 pb-5 lg:py-9">
