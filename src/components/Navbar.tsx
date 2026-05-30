@@ -274,7 +274,6 @@ export default function Navbar() {
                   >
                     {menuLinks.map((l, i) => {
                       const active = isActive(l.href);
-                      const num = String(i + 1).padStart(2, "0");
 
                       return (
                         <motion.div
@@ -294,20 +293,12 @@ export default function Navbar() {
                               active ? "text-ink" : "text-ink hover:text-cyan-brand"
                             )}
                           >
-                            <div className="flex items-baseline gap-5 lg:gap-7">
-                              <span
-                                className="text-[11px] tracking-[0.3em] uppercase opacity-50"
-                                style={{ fontWeight: 500 }}
-                              >
-                                {num}
-                              </span>
-                              <span
-                                className="font-medium leading-none"
-                                style={{ fontSize: "clamp(22px, 2.4vw, 34px)" }}
-                              >
-                                {l.label}
-                              </span>
-                            </div>
+                            <span
+                              className="font-medium leading-none"
+                              style={{ fontSize: "clamp(18px, 1.9vw, 26px)" }}
+                            >
+                              {l.label}
+                            </span>
 
                             {/* Animated arrow */}
                             <span className="relative flex items-center justify-center w-9 h-9 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "#073F36" }}>
