@@ -11,7 +11,7 @@ export const menuLinks = [
   { label: "About Us", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
   { label: "Services", href: "/services" },
-  { label: "Who We Serve", href: "/about#who-we-serve" },
+  { label: "Who We Serve", href: "/about/#who-we-serve" },
   { label: "Team", href: "/team" },
   { label: "Insights", href: "/insights" }
 ];
