@@ -110,23 +110,8 @@ export default function Navbar() {
         <AnnouncementBar />
         <div className="w-full px-5 lg:px-10">
           <div className="h-[90px] lg:h-[100px] flex items-center justify-between">
-            {/* Left: Hamburger + Logo + Nav links */}
+            {/* Left: Logo + Nav links */}
             <div className="flex items-center gap-8 lg:gap-12">
-              {/* Menu hamburger — left of logo */}
-              <button
-                aria-label="Open menu"
-                onClick={() => setOpen(true)}
-                className="cursor-pointer relative flex flex-col items-center justify-center gap-[5px] w-9 h-9 rounded-full border transition-colors duration-300 hover:border-cyan-brand/50"
-                style={{
-                  borderColor: "rgba(20,123,88,0.22)",
-                  background: "rgba(20,123,88,0.06)"
-                }}
-              >
-                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
-                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
-                <span className="block w-3 h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
-              </button>
-
               <Link href="/" className="cursor-pointer shrink-0" aria-label="MAVYN home">
                 <Logo size="md" />
               </Link>
@@ -177,6 +162,21 @@ export default function Navbar() {
 
               {/* Dark / Light mode toggle */}
               <ThemeToggle />
+
+              {/* Menu hamburger — right corner */}
+              <button
+                aria-label="Open menu"
+                onClick={() => setOpen(true)}
+                className="cursor-pointer relative flex flex-col items-center justify-center gap-[5px] w-9 h-9 rounded-full border transition-colors duration-300 hover:border-cyan-brand/50"
+                style={{
+                  borderColor: "rgba(20,123,88,0.22)",
+                  background: "rgba(20,123,88,0.06)"
+                }}
+              >
+                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
+                <span className="block w-[18px] h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
+                <span className="block w-3 h-[2px] rounded-full" style={{ background: "var(--ink)" }} />
+              </button>
             </div>
           </div>
         </div>
