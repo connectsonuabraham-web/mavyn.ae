@@ -110,13 +110,9 @@ export default function Navbar() {
         <AnnouncementBar />
         <div className="w-full px-5 lg:px-10">
           <div className="h-[90px] lg:h-[100px] flex items-center justify-between">
-            {/* Left: Logo + Hamburger + Nav links */}
+            {/* Left: Hamburger + Logo + Nav links */}
             <div className="flex items-center gap-8 lg:gap-12">
-              <Link href="/" className="cursor-pointer shrink-0" aria-label="MAVYN home">
-                <Logo size="md" />
-              </Link>
-
-              {/* Menu hamburger — next to logo */}
+              {/* Menu hamburger — left of logo */}
               <button
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
@@ -126,6 +122,10 @@ export default function Navbar() {
                 <span className="block w-6 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
                 <span className="block w-4 h-[2px] rounded-full transition-colors" style={{ background: "var(--ink)" }} />
               </button>
+
+              <Link href="/" className="cursor-pointer shrink-0" aria-label="MAVYN home">
+                <Logo size="md" />
+              </Link>
 
               <nav className="hidden md:flex items-center gap-7 lg:gap-9">
                 {navLinks.map((l) => {
