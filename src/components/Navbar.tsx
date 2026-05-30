@@ -289,13 +289,13 @@ export default function Navbar() {
                             href={l.href}
                             onClick={() => setOpen(false)}
                             className={cx(
-                              "group relative flex items-center justify-between py-3.5 lg:py-4 transition-colors duration-300",
+                              "group relative flex items-center justify-between py-2 lg:py-4 transition-colors duration-300",
                               active ? "text-ink" : "text-ink hover:text-cyan-brand"
                             )}
                           >
                             <span
                               className="font-medium leading-none"
-                              style={{ fontSize: "clamp(18px, 1.9vw, 26px)" }}
+                              style={{ fontSize: "clamp(15px, 1.9vw, 26px)" }}
                             >
                               {l.label}
                             </span>
