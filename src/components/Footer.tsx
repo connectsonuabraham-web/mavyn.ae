@@ -18,8 +18,9 @@ const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
   { label: "Services", href: "/services" },
-  { label: "Insights", href: "/insights" },
-  { label: "Team", href: "/team" }
+  { label: "Who We Serve", href: "/about/#who-we-serve" },
+  { label: "Team", href: "/team" },
+  { label: "Insights", href: "/insights" }
 ];
 
 const DEFAULTS = {
