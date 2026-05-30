@@ -206,10 +206,10 @@ export default function Navbar() {
                   <Link
                     href="/"
                     onClick={() => setOpen(false)}
-                    className="cursor-pointer"
+                    className="cursor-pointer -ml-3 lg:-ml-4"
                     aria-label="MAVYN home"
                   >
-                    <Logo size="md" />
+                    <Logo size="xl" />
                   </Link>
                 </div>
 
