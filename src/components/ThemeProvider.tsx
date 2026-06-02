@@ -12,10 +12,7 @@ export default function ThemeProvider({
       attribute="class"
       defaultTheme="light"
       enableSystem={false}
-      enableColorScheme={false}
-      storageKey="mavyn-theme"
       disableTransitionOnChange={false}
-      themes={["light", "dark"]}
     >
       {children}
     </NextThemesProvider>
