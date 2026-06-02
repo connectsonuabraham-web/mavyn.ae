@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import TeamHero from "@/components/TeamHero";
 import TeamMember, { type Member } from "@/components/TeamMember";
@@ -18,18 +17,24 @@ export default function TeamPageClient({ members }: { members: TeamMemberData[] 
   const founder = members.find((m) => m.isFounder);
   const team = members.filter((m) => !m.isFounder);
 
+  // Put founder first, then the rest of the team
+  const allTeamMembers: Member[] = [
+    ...(founder
+      ? [{ name: founder.name, title: founder.title, practice: founder.practice, bio: "", image: founder.image, slug: founder.slug }]
+      : []),
+    ...team.map((m) => ({
+      name: m.name,
+      title: m.title,
+      practice: m.practice,
+      bio: "",
+      image: m.image,
+      slug: m.slug,
+    })),
+  ];
+
   const founderMember: Member | null = founder
     ? { name: founder.name, title: founder.title, practice: founder.practice, bio: "", image: founder.image, slug: founder.slug }
     : null;
-
-  const teamMembers: Member[] = team.map((m) => ({
-    name: m.name,
-    title: m.title,
-    practice: m.practice,
-    bio: "",
-    image: m.image,
-    slug: m.slug,
-  }));
 
   return (
     <>
@@ -47,55 +52,9 @@ export default function TeamPageClient({ members }: { members: TeamMemberData[] 
             </h2>
           </div>
 
-          {/* Founder feature */}
-          {founderMember && (
-            <div className="flex flex-col items-center">
-              <Link href={`/team/${founderMember.slug}`} className="group flex flex-col items-center text-center cursor-pointer">
-                <div className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] overflow-hidden rounded-2xl border border-bg-deep/10 group-hover:border-cyan-brand/45 group-hover:shadow-[0_20px_60px_-15px_rgba(20,123,88,0.2)] transition-all duration-500">
-                  <Image
-                    src={founderMember.image}
-                    alt={founderMember.name}
-                    width={420}
-                    height={560}
-                    sizes="420px"
-                    className="w-full h-auto object-contain grayscale-[20%] contrast-[1.05] transition-all duration-700 group-hover:grayscale-0"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(2,8,15,0) 0%, rgba(2,8,15,0) 60%, rgba(2,8,15,0.5) 100%)"
-                    }}
-                  />
-                </div>
-                <div className="mt-7">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="block w-[8px] h-[8px] rotate-45 bg-cyan-brand shadow-[0_0_10px_rgba(20,123,88,0.6)]" />
-                    <span className="text-[11px] tracking-[0.32em] uppercase text-cyan-brand font-semibold">
-                      {founderMember.title}
-                    </span>
-                  </div>
-                  <h3
-                    className="mt-3 uppercase font-medium text-ink leading-tight group-hover:text-cyan-brand transition-colors"
-                    style={{ fontSize: "clamp(28px, 3vw, 48px)" }}
-                  >
-                    {founderMember.name}
-                  </h3>
-                  <p className="mt-2 text-[11.5px] tracking-[0.24em] uppercase text-ink/60 font-semibold">
-                    {founderMember.practice}
-                  </p>
-                  <span className="inline-flex items-center gap-2 mt-4 text-[10px] tracking-[0.28em] uppercase text-ink/45 group-hover:text-cyan-brand transition-colors">
-                    View profile →
-                  </span>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {/* Grid of team members */}
-          <div className="mt-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-4 lg:gap-8 items-start mx-auto px-2 sm:px-0">
-            {teamMembers.map((m, i) => (
+          {/* Grid of all team members (founder first) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-4 lg:gap-8 items-start mx-auto px-2 sm:px-0">
+            {allTeamMembers.map((m, i) => (
               <TeamMember key={m.name} member={m} index={i} />
             ))}
           </div>
