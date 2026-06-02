@@ -1,6 +1,9 @@
 name: Build and Deploy
 
 on:
+  # Auto-deploy on push to main
+  push:
+    branches: [main]
   # Sanity webhook triggers this
   repository_dispatch:
     types: [sanity-content-update]
