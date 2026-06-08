@@ -3,6 +3,8 @@ import { urlFor } from "@/lib/sanity";
 import { teamProfiles } from "@/lib/team-data";
 import TeamPageClient from "./TeamPageClient";
 
+export const revalidate = 60; // Revalidate every 60 seconds
+
 export default async function TeamPage() {
   // Always start with hardcoded members
   const hardcodedMembers = teamProfiles.map((p) => ({
