@@ -13,3 +13,9 @@ next-env.d.ts
 .env
 .env.local
 .env.production
+
+# IDE and tooling
+.claude/
+.kiro/
+.vscode/
+fix_all_dashes.ps1
