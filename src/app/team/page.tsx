@@ -6,40 +6,35 @@ import TeamPageClient from "./TeamPageClient";
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function TeamPage() {
-  // Always start with hardcoded members
-  const hardcodedMembers = teamProfiles.map((p) => ({
-    name: p.name,
-    slug: p.slug,
-    title: p.title,
-    practice: p.practice,
-    image: p.image,
-    isFounder: p.slug === "muna-salvi",
-  }));
-
-  // Fetch any additional members from Sanity
-  let sanityMembers: any[] = [];
+  // Fetch all members from Sanity
+  let allMembers: any[] = [];
   try {
     const fetched = await getTeamMembers();
     if (fetched && fetched.length > 0) {
-      // Only include Sanity members whose slug doesn't already exist in hardcoded
-      const hardcodedSlugs = new Set(hardcodedMembers.map((m) => m.slug));
-      sanityMembers = fetched
-        .filter((m: any) => !hardcodedSlugs.has(m.slug))
-        .map((m: any) => ({
-          name: m.name,
-          slug: m.slug,
-          title: m.jobTitle || "",
-          practice: m.practice || "",
-          image: m.photo ? urlFor(m.photo).width(600).height(800).url() : "/images/placeholder.jpg",
-          isFounder: m.isFounder || false,
-        }));
+      allMembers = fetched.map((m: any) => ({
+        name: m.name,
+        slug: m.slug,
+        title: m.jobTitle || "",
+        practice: m.practice || "",
+        image: m.photo ? urlFor(m.photo).width(600).height(800).url() : "/images/placeholder.jpg",
+        isFounder: m.isFounder || false,
+      }));
     }
   } catch (err) {
-    // Sanity not available — just use hardcoded
+    // Sanity not available — fall back to hardcoded
   }
 
-  // Combine: hardcoded first, then new Sanity members
-  const allMembers = [...hardcodedMembers, ...sanityMembers];
+  // Fall back to hardcoded if Sanity returned nothing
+  if (allMembers.length === 0) {
+    allMembers = teamProfiles.map((p) => ({
+      name: p.name,
+      slug: p.slug,
+      title: p.title,
+      practice: p.practice,
+      image: p.image,
+      isFounder: p.slug === "muna-salvi",
+    }));
+  }
 
   return <TeamPageClient members={allMembers} />;
 }
