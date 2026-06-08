@@ -94,10 +94,10 @@ export default function InsightsPage() {
             image: i.featuredImage ? urlFor(i.featuredImage).width(800).url() : IMG.heroSkyline,
             href: `/insights/${i.slug}`,
           }));
-          // Merge: keep hardcoded cards + add new Sanity ones (avoid duplicates by title)
+          // Merge: Sanity cards first, then hardcoded ones not already in Sanity
           const hardcodedTitles = new Set(fallbackCards.map((c) => c.title));
           const newFromSanity = mapped.filter((c: any) => !hardcodedTitles.has(c.title));
-          setCards([...fallbackCards, ...newFromSanity]);
+          setCards([...newFromSanity, ...fallbackCards]);
           if (total > PER_PAGE) {
             setTotalPages(Math.ceil((fallbackCards.length + newFromSanity.length) / PER_PAGE));
           }
